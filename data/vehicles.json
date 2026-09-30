@@ -43,7 +43,7 @@
   },
   {
     "id": "urbania16",
-    "name": "Force Urbania Luxury Van (16S)",
+    "name": "Force Urbania Luxury Van (16-Seater)",
     "shortName": "Urbania (16S)",
     "category": "Luxury Van",
     "image": "/images/card-fleet-lineup.png",
@@ -57,7 +57,7 @@
   },
   {
     "id": "tempoTraveller17",
-    "name": "Force Tempo Traveller (17 Seater)",
+    "name": "17-Seater Tempo Traveller",
     "shortName": "17S Tempo Traveller",
     "category": "Mini Coach",
     "image": "/images/card-fleet-lineup.png",
@@ -70,8 +70,22 @@
     "features": ["Push-Back 2x1 Recliner Seats", "High-Power Dual AC", "Overhead Parcel Racks", "LED Screen & Mic System", "Ample Leg Space"]
   },
   {
+    "id": "tempoTraveller20",
+    "name": "20-Seater Tempo Traveller",
+    "shortName": "20S Tempo Traveller",
+    "category": "Medium Coach",
+    "image": "/images/card-fleet-lineup.png",
+    "seating": "20 Passengers + 1 Chauffeur",
+    "passengers": 20,
+    "luggage": "Large Rear Boot & Roof Luggage Carrier",
+    "ac": true,
+    "idealFor": "Large pilgrimage families, temple groups & group darshan yatras",
+    "description": "Spacious 20-seater configuration offering push-back recliner seats, individual AC vents, wide center aisle, and smooth highway ride.",
+    "features": ["Push-Back Recliner Seats", "Dedicated AC Louvers", "Overhead Racks & Rear Boot", "Music & PA System", "Highway Stability"]
+  },
+  {
     "id": "tempoTraveller26",
-    "name": "Force Tempo Traveller (26 Seater)",
+    "name": "26-Seater Tempo Traveller",
     "shortName": "26S Tempo Traveller",
     "category": "Large Group Van",
     "image": "/images/card-fleet-lineup.png",
@@ -80,12 +94,12 @@
     "luggage": "Large Dedicated Luggage Space",
     "ac": true,
     "idealFor": "Pilgrimage groups, wedding parties, and temple society tours",
-    "description": "Maximum capacity group van with high roof clearance, comfortable wide gangway, and strong air conditioning for long journeys.",
+    "description": "Maximum capacity group traveller with high roof clearance, comfortable wide gangway, and strong dual air conditioning for long journeys.",
     "features": ["High Roof Standing Clearance", "Individual AC Louvers", "2x2 Reclining Seats", "Audio & Microphone System", "Heavy-Duty Highway Comfort"]
   },
   {
     "id": "miniBus35",
-    "name": "35 Seater Luxury Tourist Mini Bus",
+    "name": "Mini Bus (35-Seater)",
     "shortName": "35S Mini Bus",
     "category": "Tour Bus",
     "image": "/images/vehicles/bus.jpg",
@@ -96,5 +110,19 @@
     "idealFor": "Large pilgrimage congregations, institutional tours & darshan yatras",
     "description": "Full-size luxury tourist coach with air-suspension ride, pneumatic doors, high-back pushback seating, and professional tourist drivers.",
     "features": ["Air Suspension Ride", "High-Back Pushback Seats", "Huge Underbelly Luggage Space", "PA Audio System", "Chilled Central AC"]
+  },
+  {
+    "id": "coach49",
+    "name": "Coach (49-Seater)",
+    "shortName": "49S Luxury Coach",
+    "category": "Large Tourist Coach",
+    "image": "/images/vehicles/bus.jpg",
+    "seating": "49 Passengers + 2 Staff",
+    "passengers": 49,
+    "luggage": "Expansive Underbelly Luggage Compartments",
+    "ac": true,
+    "idealFor": "Major spiritual yatras, large temple delegations & interstate group pilgrimage",
+    "description": "Grand 49-seater multi-axle / luxury touring coach with plush push-back seating, powerful central climate control, microphone announcements, and air-ride comfort.",
+    "features": ["Plush High-Back Reclining Seats", "Full Climate Control AC", "Expansive Underbelly Luggage Bays", "Professional Highway Chauffeur Crew", "Public Address & Video System"]
   }
 ]

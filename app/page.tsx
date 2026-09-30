@@ -145,7 +145,7 @@ export default function HomePage() {
                 </span>
                 <span className="flex items-center space-x-1.5 bg-black/30 px-3 py-1.5 rounded-lg border border-white/10">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Sedan to 35S Mini Bus</span>
+                  <span>Sedan to 49S Tourist Coach</span>
                 </span>
                 <span className="flex items-center space-x-1.5 bg-black/30 px-3 py-1.5 rounded-lg border border-white/10">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />

@@ -34,8 +34,10 @@ export interface RoutePricing {
   innovaCrysta: number;
   urbania16: number;
   tempoTraveller17: number;
+  tempoTraveller20: number;
   tempoTraveller26: number;
   miniBus35: number;
+  coach49: number;
   [key: string]: number;
 }
 

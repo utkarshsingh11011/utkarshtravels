@@ -20,7 +20,7 @@ export default function FleetShowcase() {
             Our Verified Vehicle Fleet
           </h2>
           <p className="text-slate-300 mt-4 text-base sm:text-lg">
-            From comfortable Dzire sedans for couple darshan to luxury Toyota Innova Crysta, Force Urbania, and 35-Seater Tourist Mini Buses for large pilgrimage groups.
+            From comfortable Dzire sedans for couple darshan to luxury Toyota Innova Crysta, Force Urbania, Tempo Travellers (17S, 20S, 26S), and 35S &amp; 49S Tourist Coaches for large pilgrimage groups.
           </p>
         </div>
 
@@ -31,7 +31,7 @@ export default function FleetShowcase() {
               Official Fleet Lineup • Mehmoorganj, Varanasi
             </span>
             <h3 className="text-2xl sm:text-3xl font-bold text-white font-serif">
-              All Vehicles Sanitized & Available 24/7
+              All Vehicles Sanitized &amp; Available 24/7
             </h3>
             <p className="text-xs sm:text-sm text-slate-300">
               Clean, chilled AC, commercial tourist registration, and polite background-checked chauffeurs for your family&apos;s peace of mind.
@@ -39,13 +39,13 @@ export default function FleetShowcase() {
           </div>
 
           <div className="mt-6 pt-4 border-t border-amber-500/20 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center space-x-6 text-xs text-amber-200">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-amber-200">
               <span>✓ Swift Dzire</span>
               <span>✓ Maruti Ertiga</span>
               <span>✓ Innova Crysta</span>
-              <span>✓ Force Urbania</span>
-              <span>✓ Tempo Traveller</span>
-              <span>✓ 35S Mini Bus</span>
+              <span>✓ Force Urbania (16S)</span>
+              <span>✓ Tempo Traveller (17S, 20S, 26S)</span>
+              <span>✓ Mini Bus (35S) &amp; Coach (49S)</span>
             </div>
 
             <a

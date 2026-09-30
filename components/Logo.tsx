@@ -8,7 +8,7 @@ interface LogoProps {
 
 export default function Logo({ variant = "light", className = "" }: LogoProps) {
   const isLight = variant === "light";
-  const logoSrc = isLight ? "/images/logo-light.png" : "/images/logo.png";
+  const logoSrc = isLight ? "/images/brand-logo-horizontal-light.png" : "/images/brand-logo-horizontal.png";
 
   return (
     <Link
@@ -16,14 +16,14 @@ export default function Logo({ variant = "light", className = "" }: LogoProps) {
       className={`inline-flex items-center group transition-transform duration-300 hover:scale-[1.02] ${className}`}
       aria-label="Utkarsh Travels - Your Journey Our Priority"
     >
-      <div className="relative h-12 sm:h-14 w-40 sm:w-48">
+      <div className="relative h-12 sm:h-14 w-44 sm:w-56">
         <Image
           src={logoSrc}
           alt="Utkarsh Travels Official Logo"
           fill
           priority
           className="object-contain object-left"
-          sizes="(max-width: 640px) 160px, 200px"
+          sizes="(max-width: 640px) 176px, 224px"
         />
       </div>
     </Link>

@@ -122,10 +122,11 @@ export default function Footer() {
               <li>Swift Dzire (Sedan)</li>
               <li>Maruti Ertiga (MUV)</li>
               <li>Toyota Innova Crysta</li>
-              <li>Force Urbania (16S)</li>
-              <li>Tempo Traveller 17S</li>
-              <li>Tempo Traveller 26S</li>
-              <li>35 Seater Mini Bus</li>
+              <li>Force Urbania (16S Luxury)</li>
+              <li>Tempo Traveller (17S &amp; 20S)</li>
+              <li>Tempo Traveller (26S High-Roof)</li>
+              <li>35-Seater Tourist Mini Bus</li>
+              <li>49-Seater Luxury Tourist Coach</li>
             </ul>
           </div>
 
