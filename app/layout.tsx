@@ -98,6 +98,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "hbFE5WuIAn09JMnhHUDshG1NjvRw4UNIJNz_JBMP1TI",
+  },
   other: {
     "geo.region": "IN-UP",
     "geo.placename": "Varanasi, Uttar Pradesh, India",
