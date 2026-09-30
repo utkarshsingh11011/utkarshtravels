@@ -26,21 +26,31 @@ const cinzel = Cinzel({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.domain),
   title: {
-    default: "Utkarsh Travels Varanasi | Pilgrimage Taxi & Intercity Cab Service",
-    template: "%s | Utkarsh Travels",
+    default: "Utkarsh Travels Varanasi | Pilgrimage Taxi & Outstation Cab Service",
+    template: "%s | Utkarsh Travels Varanasi",
   },
   description:
-    "Book verified AC cabs from Varanasi to Ayodhya, Prayagraj, Vindhyachal, Gaya & Chitrakoot. Transparent fares, Dzire from ₹2,400. 24/7 WhatsApp booking from Mehmoorganj.",
+    "Book verified AC cabs from Varanasi to Ayodhya Ram Mandir (₹5,500), Prayagraj Sangam (₹3,500), Vindhyachal (₹2,400) & Gaya (₹7,000). Swift Dzire, Innova Crysta, Force Urbania & Tempo Traveller. 24/7 WhatsApp booking (+91 9648974238).",
   keywords: [
     "utkarsh travels varanasi",
-    "utkarsh singh varanasi taxi",
+    "utkarsh travels",
     "varanasi taxi service",
+    "varanasi to ayodhya taxi service",
     "varanasi to ayodhya cab fare",
-    "varanasi prayagraj taxi",
-    "varanasi to gaya taxi",
-    "tempo traveller booking varanasi",
-    "kashi darshan cab",
-    "innova crysta varanasi rental"
+    "varanasi to prayagraj taxi",
+    "triveni sangam cab from varanasi",
+    "varanasi to vindhyachal taxi fare",
+    "varanasi to bodh gaya taxi",
+    "varanasi to gaya pind daan cab",
+    "tempo traveller in varanasi",
+    "force urbania rental varanasi",
+    "innova crysta car rental varanasi",
+    "35 seater bus hire varanasi",
+    "49 seater coach hire varanasi",
+    "best taxi service in mehmoorganj varanasi",
+    "kashi vishwanath tour taxi",
+    "ayodhya ram mandir same day tour from varanasi",
+    "car rental with driver varanasi"
   ],
   authors: [{ name: `${siteConfig.founder} - ${siteConfig.name}`, url: siteConfig.domain }],
   creator: siteConfig.name,
@@ -54,19 +64,28 @@ export const metadata: Metadata = {
     canonical: siteConfig.domain,
   },
   openGraph: {
-    title: "Utkarsh Travels Varanasi | Pilgrimage Taxi & Intercity Cab Service",
+    title: "Utkarsh Travels Varanasi | Pilgrimage Taxi & Outstation Cab Service",
     description:
-      "Verified local cab operator in Mehmoorganj, Varanasi. Fixed tariffs for Ayodhya, Prayagraj, Vindhyachal, and Gaya. Instant WhatsApp quote.",
+      "Varanasi's trusted pilgrimage taxi service in Mehmoorganj. Fixed tariffs for Ayodhya (₹5,500), Prayagraj (₹3,500), Vindhyachal (₹2,400), Gaya (₹7,000). Swift Dzire, Innova Crysta, Tempo Traveller & Luxury Coach.",
     url: siteConfig.domain,
     siteName: siteConfig.name,
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.domain}/images/destinations/ayodhya.jpg`,
+        width: 1200,
+        height: 800,
+        alt: "Utkarsh Travels Varanasi - Sacred Pilgrimage Cabs & Tours",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Utkarsh Travels Varanasi | Pilgrimage Taxi & Intercity Cab Service",
+    title: "Utkarsh Travels Varanasi | Pilgrimage Taxi & Outstation Cab Service",
     description:
       "Varanasi's trusted cab operator. Transparent rate cards for Ayodhya, Prayagraj, Gaya, and Vindhyachal.",
+    images: [`${siteConfig.domain}/images/destinations/ayodhya.jpg`],
   },
   robots: {
     index: true,
@@ -78,6 +97,12 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  other: {
+    "geo.region": "IN-UP",
+    "geo.placename": "Varanasi, Uttar Pradesh, India",
+    "geo.position": "25.3076;82.9739",
+    "ICBM": "25.3076, 82.9739",
   },
 };
 

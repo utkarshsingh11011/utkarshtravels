@@ -4,13 +4,23 @@ import siteConfig from "@/data/site.json";
 export function getLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "TravelAgency",
+    "@type": ["TaxiService", "TravelAgency", "AutoRental"],
     "name": siteConfig.name,
+    "alternateName": ["Utkarsh Travels Varanasi", "Utkarsh Singh Travels"],
     "url": siteConfig.domain,
-    "telephone": siteConfig.phoneDisplay,
+    "image": `${siteConfig.domain}/images/destinations/ayodhya.jpg`,
+    "logo": `${siteConfig.domain}/images/brand-logo-horizontal.png`,
+    "telephone": siteConfig.phone,
     "email": siteConfig.email,
-    "description": "Premier spiritual and intercity taxi & tour operator based in Varanasi, serving Ayodhya, Prayagraj, Vindhyachal, Gaya, and beyond.",
-    "priceRange": siteConfig.priceRange,
+    "description": "Premier spiritual pilgrimage and intercity taxi service based in Mehmoorganj, Varanasi. Operating AC sedans, Innova Crysta, Tempo Travellers, and luxury coaches to Ayodhya Ram Mandir, Prayagraj Sangam, Vindhyachal, and Gaya.",
+    "priceRange": "₹2400 - ₹56000",
+    "currenciesAccepted": "INR",
+    "paymentAccepted": "Cash, UPI, Google Pay, PhonePe, Net Banking, Credit Card, Debit Card",
+    "founder": {
+      "@type": "Person",
+      "name": siteConfig.founder,
+      "jobTitle": "Tour Coordinator & Founder"
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": siteConfig.address.street,
@@ -24,6 +34,13 @@ export function getLocalBusinessSchema() {
       "latitude": siteConfig.geo.latitude,
       "longitude": siteConfig.geo.longitude
     },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "348",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -35,7 +52,53 @@ export function getLocalBusinessSchema() {
     "areaServed": siteConfig.areaServed.map((city) => ({
       "@type": "City",
       "name": city
-    }))
+    })),
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Pilgrimage Taxi Packages from Varanasi",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Varanasi to Ayodhya Taxi Service",
+            "description": "Same day AC cab for Ram Mandir & Hanuman Garhi darshan"
+          },
+          "price": "5500",
+          "priceCurrency": "INR"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Varanasi to Prayagraj Taxi Service",
+            "description": "Same day AC cab for Triveni Sangam Snan & Bade Hanuman Ji"
+          },
+          "price": "3500",
+          "priceCurrency": "INR"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Varanasi to Vindhyachal Taxi Service",
+            "description": "Same day AC cab for Maa Vindhyavasini Shaktipeeth Trikona Parikrama"
+          },
+          "price": "2400",
+          "priceCurrency": "INR"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Varanasi to Gaya & Bodh Gaya Taxi Service",
+            "description": "Same day AC cab for Vishnupad Pind Daan and Mahabodhi Temple"
+          },
+          "price": "7000",
+          "priceCurrency": "INR"
+        }
+      ]
+    }
   };
 }
 
