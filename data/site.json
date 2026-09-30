@@ -1,0 +1,45 @@
+{
+  "name": "Utkarsh Travels",
+  "tagline": "Your Journey • Our Priority",
+  "domain": "https://utkarshtravels.com",
+  "phone": "+919648974238",
+  "phoneDisplay": "+91 9648974238",
+  "email": "utkarshtravelsvns@gmail.com",
+  "address": {
+    "street": "Mehmoorganj",
+    "locality": "Varanasi",
+    "region": "Uttar Pradesh",
+    "country": "IN",
+    "postalCode": "221010"
+  },
+  "geo": {
+    "latitude": 25.3076,
+    "longitude": 82.9739
+  },
+  "hours": "Mo-Su 00:00-24:00",
+  "priceRange": "₹₹",
+  "areaServed": [
+    "Varanasi",
+    "Ayodhya",
+    "Prayagraj",
+    "Vindhyachal",
+    "Gaya",
+    "Bodh Gaya",
+    "Chitrakoot",
+    "Kashi"
+  ],
+  "socials": {
+    "whatsapp": "https://wa.me/919648974238"
+  },
+  "inclusions": [
+    "Dedicated clean AC vehicle with polite, experienced driver",
+    "Pickup from Varanasi Hotel, Airport, or Railway Station (Cantt / Banaras / DDU)",
+    "Fuel, state border permits, and standard driver allowances",
+    "24/7 dedicated trip assistance"
+  ],
+  "exclusions": [
+    "Toll taxes and monument / temple parking charges (payable at actuals)",
+    "Monument entry fees, guide charges, or VIP darshan passes",
+    "Meals, refreshments, and personal expenses"
+  ]
+}
