@@ -1,110 +1,110 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, MessageCircle, ShieldCheck, Clock, Award } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Map, ShieldCheck, HeartHandshake, Headphones } from "lucide-react";
 import siteConfig from "@/data/site.json";
 import routesData from "@/data/routes.json";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import Logo from "@/components/Logo";
+import VaranasiSkyline from "@/components/VaranasiSkyline";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-slate-300 border-t border-slate-800">
-      {/* Trust Badges Bar */}
-      <div className="border-b border-slate-800/80 bg-slate-900/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
-            <div className="flex items-center space-x-4 justify-center md:justify-start">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-6 h-6 text-amber-400" />
+    <footer className="bg-[#050D1B] text-slate-300 relative border-t-4 border-amber-500 overflow-hidden">
+      {/* Card Ribbon Feature Badges Bar */}
+      <div className="bg-[#08152B] border-b border-amber-500/20 py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {/* 1. Local & Outstation */}
+            <div className="flex flex-col items-center p-3 rounded-2xl bg-white/5 border border-amber-500/20 hover:border-amber-400/50 transition-colors">
+              <div className="w-12 h-12 rounded-full bg-amber-500/10 border-2 border-amber-400 flex items-center justify-center text-amber-400 mb-2.5 shadow-lg shadow-amber-500/10">
+                <Map className="w-5 h-5" />
               </div>
-              <div>
-                <h4 className="font-semibold text-white text-base">Verified & Polite Drivers</h4>
-                <p className="text-xs text-slate-400 mt-0.5">Background-checked highway experts for peace of mind.</p>
-              </div>
+              <h4 className="font-bold text-white text-xs sm:text-sm">Local & Outstation</h4>
+              <p className="text-[11px] text-slate-400 mt-0.5">Tour Packages</p>
             </div>
 
-            <div className="flex items-center space-x-4 justify-center md:justify-start">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
-                <Clock className="w-6 h-6 text-emerald-400" />
+            {/* 2. Comfortable & Safe */}
+            <div className="flex flex-col items-center p-3 rounded-2xl bg-white/5 border border-amber-500/20 hover:border-amber-400/50 transition-colors">
+              <div className="w-12 h-12 rounded-full bg-amber-500/10 border-2 border-amber-400 flex items-center justify-center text-amber-400 mb-2.5 shadow-lg shadow-amber-500/10">
+                <ShieldCheck className="w-5 h-5" />
               </div>
-              <div>
-                <h4 className="font-semibold text-white text-base">100% Punctual Pickup</h4>
-                <p className="text-xs text-slate-400 mt-0.5">On-time airport, railway station, and doorstep reporting.</p>
-              </div>
+              <h4 className="font-bold text-white text-xs sm:text-sm">Comfortable & Safe</h4>
+              <p className="text-[11px] text-slate-400 mt-0.5">Sanitized AC Rides</p>
             </div>
 
-            <div className="flex items-center space-x-4 justify-center md:justify-start">
-              <div className="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center shrink-0">
-                <Award className="w-6 h-6 text-sky-400" />
+            {/* 3. Reliable Service */}
+            <div className="flex flex-col items-center p-3 rounded-2xl bg-white/5 border border-amber-500/20 hover:border-amber-400/50 transition-colors">
+              <div className="w-12 h-12 rounded-full bg-amber-500/10 border-2 border-amber-400 flex items-center justify-center text-amber-400 mb-2.5 shadow-lg shadow-amber-500/10">
+                <HeartHandshake className="w-5 h-5" />
               </div>
-              <div>
-                <h4 className="font-semibold text-white text-base">Transparent Rate Cards</h4>
-                <p className="text-xs text-slate-400 mt-0.5">Zero hidden charges. Complete clarity on tolls and parking.</p>
+              <h4 className="font-bold text-white text-xs sm:text-sm">Reliable Service</h4>
+              <p className="text-[11px] text-slate-400 mt-0.5">Verified Local Chauffeurs</p>
+            </div>
+
+            {/* 4. 24/7 Support */}
+            <div className="flex flex-col items-center p-3 rounded-2xl bg-white/5 border border-amber-500/20 hover:border-amber-400/50 transition-colors">
+              <div className="w-12 h-12 rounded-full bg-amber-500/10 border-2 border-amber-400 flex items-center justify-center text-amber-400 mb-2.5 shadow-lg shadow-amber-500/10">
+                <Headphones className="w-5 h-5" />
               </div>
+              <h4 className="font-bold text-white text-xs sm:text-sm">24/7 Support</h4>
+              <p className="text-[11px] text-slate-400 mt-0.5">Direct Owner Contact</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main Footer Links & NAP */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Company & NAP */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-9 h-9 rounded-xl bg-amber-500 flex items-center justify-center font-bold text-slate-950 text-xl">
-                U
-              </div>
-              <span className="text-xl font-bold tracking-tight text-white">
-                Utkarsh <span className="text-amber-400">Travels</span>
-              </span>
-            </div>
-            <p className="text-sm text-slate-400 leading-relaxed italic">
-              &ldquo;{siteConfig.tagline}&rdquo;
-            </p>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Utkarsh Travels is Varanasi’s trusted local operator for spiritual pilgrimage circuits, darshan day-trips, and intercity cab rentals across Uttar Pradesh and Bihar.
+      {/* Main Footer Body with Business Card Artwork */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 items-start">
+          {/* Brand & Utkarsh Singh Credentials */}
+          <div className="lg:col-span-4 space-y-4">
+            <Logo variant="light" />
+
+            <p className="text-xs text-slate-300 leading-relaxed pt-2">
+              Utkarsh Travels is Varanasi’s premier spiritual pilgrimage and intercity cab service, dedicated to providing dependable, air-conditioned sacred yatras across Uttar Pradesh and Bihar.
             </p>
 
-            {/* Verified NAP Block */}
-            <div className="pt-2 space-y-2.5 text-xs text-slate-300">
-              <div className="flex items-start space-x-2.5">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                <span>
-                  <strong>Utkarsh Travels</strong>
-                  <br />
-                  {siteConfig.address.street}, {siteConfig.address.locality}
-                  <br />
-                  {siteConfig.address.region} - {siteConfig.address.postalCode}, India
-                </span>
+            {/* Business Card Box */}
+            <div className="bg-[#0A1A36] p-4 rounded-2xl border border-amber-500/30 space-y-2.5 text-xs">
+              <div className="flex items-center space-x-2 text-amber-400 font-bold text-sm border-b border-slate-700/60 pb-2">
+                <span>{siteConfig.founder}</span>
+                <span className="text-slate-500 font-normal text-xs">• Tour Coordinator</span>
               </div>
-              <div className="flex items-center space-x-2.5">
+
+              <div className="flex items-start space-x-2 text-slate-300">
+                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <span>{siteConfig.address.street}, {siteConfig.address.locality}, UP - {siteConfig.address.postalCode}</span>
+              </div>
+
+              <div className="flex items-center space-x-2 text-slate-300">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                <a href={`tel:${siteConfig.phone}`} className="hover:text-white transition-colors">
+                <a href={`tel:${siteConfig.phone}`} className="hover:text-amber-400 font-bold tracking-wide">
                   {siteConfig.phoneDisplay}
                 </a>
               </div>
-              <div className="flex items-center space-x-2.5">
+
+              <div className="flex items-center space-x-2 text-slate-300">
                 <Mail className="w-4 h-4 text-amber-400 shrink-0" />
-                <a href={`mailto:${siteConfig.email}`} className="hover:text-white transition-colors">
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-amber-400">
                   {siteConfig.email}
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Popular Spiritual Routes (SEO Internal Links) */}
-          <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
-              Popular Tour Routes
+          {/* Pilgrimage Circuits Internal SEO Links */}
+          <div className="lg:col-span-3 space-y-3">
+            <h3 className="text-xs font-bold text-amber-400 uppercase tracking-widest border-b border-slate-800 pb-2">
+              Pilgrimage Tour Circuits
             </h3>
-            <ul className="space-y-2.5 text-xs">
+            <ul className="space-y-2 text-xs">
               {routesData.map((route) => (
                 <li key={route.slug}>
                   <Link
                     href={`/${route.slug}`}
-                    className="text-slate-400 hover:text-amber-400 transition-colors flex items-center justify-between"
+                    className="text-slate-300 hover:text-amber-400 transition-colors flex items-center justify-between group"
                   >
-                    <span>{route.name}</span>
-                    <span className="text-[11px] text-slate-500 font-mono">
+                    <span className="group-hover:translate-x-0.5 transition-transform">{route.name}</span>
+                    <span className="font-mono text-amber-400/90 text-[11px]">
                       ₹{route.pricing.dzire.toLocaleString("en-IN")}
                     </span>
                   </Link>
@@ -113,71 +113,61 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Fleet Categories */}
-          <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
-              Our Vehicle Fleet
+          {/* Fleet Lineup */}
+          <div className="lg:col-span-2 space-y-3">
+            <h3 className="text-xs font-bold text-amber-400 uppercase tracking-widest border-b border-slate-800 pb-2">
+              Vehicle Fleet
             </h3>
-            <ul className="space-y-2 text-xs text-slate-400">
-              <li>
-                <strong className="text-slate-300">Maruti Swift Dzire</strong> (4 Seater Sedan)
-              </li>
-              <li>
-                <strong className="text-slate-300">Maruti Suzuki Ertiga</strong> (6 Seater MUV)
-              </li>
-              <li>
-                <strong className="text-slate-300">Toyota Innova Crysta</strong> (6/7 Seater Premium SUV)
-              </li>
-              <li>
-                <strong className="text-slate-300">Force Urbania (16S)</strong> (16 Seater Luxury Van)
-              </li>
-              <li>
-                <strong className="text-slate-300">Tempo Traveller 17S</strong> (17 Seater Mini Coach)
-              </li>
-              <li>
-                <strong className="text-slate-300">Tempo Traveller 26S</strong> (26 Seater Group Van)
-              </li>
-              <li>
-                <strong className="text-slate-300">35 Seater Mini Bus</strong> (Large Tour Coach)
-              </li>
+            <ul className="space-y-2 text-xs text-slate-300">
+              <li>Swift Dzire (Sedan)</li>
+              <li>Maruti Ertiga (MUV)</li>
+              <li>Toyota Innova Crysta</li>
+              <li>Force Urbania (16S)</li>
+              <li>Tempo Traveller 17S</li>
+              <li>Tempo Traveller 26S</li>
+              <li>35 Seater Mini Bus</li>
             </ul>
           </div>
 
-          {/* Quick Lead Action & Inclusions */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
-              Instant Booking
-            </h3>
-            <p className="text-xs text-slate-400">
-              Need a personalized itinerary or immediate cab dispatch in Varanasi? Chat directly on WhatsApp with our travel coordinator.
-            </p>
+          {/* Golden Varanasi Skyline & Slogan */}
+          <div className="lg:col-span-3 space-y-4 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xs font-bold text-amber-400 uppercase tracking-widest border-b border-slate-800 pb-2">
+                Spiritual Varanasi
+              </h3>
+              <p className="text-xs font-serif italic text-amber-200/90 mt-2">
+                &ldquo;{siteConfig.motto}&rdquo;
+              </p>
+            </div>
+
+            {/* Golden Temple Artwork */}
+            <div className="pt-2 flex justify-center lg:justify-start">
+              <VaranasiSkyline className="w-56 h-24" color="#F59E0B" />
+            </div>
+
             <a
               href={getWhatsAppUrl({})}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 w-full justify-center px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-lg shadow-emerald-600/20 transition-colors"
+              className="inline-flex items-center justify-center space-x-2 w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 transition-all hover:scale-[1.02]"
             >
-              <MessageCircle className="w-5 h-5" />
-              <span>WhatsApp Booking Desk</span>
+              <MessageCircle className="w-4 h-4 fill-slate-950 text-amber-500" />
+              <span>Instant WhatsApp Booking</span>
             </a>
-            <div className="text-[11px] text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800">
-              <span className="font-semibold text-slate-300 block mb-1">Inclusions Guarantee:</span>
-              Clean AC vehicles, verified polite chauffeurs, 24/7 route support, and fuel charges included.
-            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-          <p>© {new Date().getFullYear()} Utkarsh Travels Varanasi. All rights reserved.</p>
-          <div className="flex items-center space-x-6">
+        <div className="mt-12 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+          <p>© {new Date().getFullYear()} Utkarsh Travels Varanasi. Managed by {siteConfig.founder}.</p>
+          <div className="flex items-center space-x-6 text-xs">
             <Link href="/" className="hover:text-amber-400 transition-colors">
               Home
             </Link>
             <Link href="/contact" className="hover:text-amber-400 transition-colors">
-              Contact & Inquiry
+              Contact Us
             </Link>
-            <a href={siteConfig.domain + "/sitemap.xml"} className="hover:text-amber-400 transition-colors">
+            <a href={`${siteConfig.domain}/sitemap.xml`} className="hover:text-amber-400 transition-colors">
               Sitemap
             </a>
           </div>

@@ -4,90 +4,97 @@
     "name": "Maruti Swift Dzire",
     "shortName": "Dzire",
     "category": "Sedan",
-    "seating": "4 Passengers + 1 Driver",
+    "image": "/images/vehicles/sedan.jpg",
+    "seating": "4 Passengers + 1 Chauffeur",
     "passengers": 4,
     "luggage": "2 Large Bags + 2 Small Bags",
     "ac": true,
-    "idealFor": "Couples, small families & budget-conscious pilgrims",
-    "description": "Economical, comfortable, and fuel-efficient sedan equipped with chilling AC, perfect for swift day trips and city darshan.",
-    "features": ["Air Conditioned", "Clean Interiors", "Phone Charging", "Audio System", "Spacious Trunk"]
+    "idealFor": "Couples, small families & same-day darshan trips",
+    "description": "Economical, comfortable, and fuel-efficient sedan equipped with chilling AC, perfect for swift pilgrimage day trips and city darshan.",
+    "features": ["Chilled AC", "Clean Sanitized Interiors", "Mobile Charging Ports", "Audio System", "Spacious Trunk"]
   },
   {
     "id": "ertiga",
     "name": "Maruti Suzuki Ertiga",
     "shortName": "Ertiga",
     "category": "MUV",
-    "seating": "6 Passengers + 1 Driver",
+    "image": "/images/vehicles/suv.jpg",
+    "seating": "6 Passengers + 1 Chauffeur",
     "passengers": 6,
     "luggage": "3 Medium Bags",
     "ac": true,
     "idealFor": "Families up to 6 members requiring extra legroom and boot space",
-    "description": "Spacious multi-utility vehicle offering flexible seating and smooth highway cruising for family pilgrimage routes.",
-    "features": ["Dual AC", "Flexible 3-Row Seating", "Comfortable Legroom", "USB Chargers", "Music System"]
+    "description": "Spacious multi-utility vehicle offering flexible 3-row seating and smooth highway cruising for family pilgrimage routes.",
+    "features": ["Dual AC (Front & Rear)", "Flexible 3-Row Seating", "Comfortable Legroom", "USB Fast Chargers", "Smooth Highway Suspension"]
   },
   {
     "id": "innovaCrysta",
     "name": "Toyota Innova Crysta",
     "shortName": "Innova Crysta",
     "category": "Premium SUV",
-    "seating": "6/7 Passengers + 1 Driver",
+    "image": "/images/vehicles/suv.jpg",
+    "seating": "6/7 Passengers + 1 Chauffeur",
     "passengers": 7,
     "luggage": "4 Large Bags",
     "ac": true,
-    "idealFor": "VIPs, senior citizens, and families seeking maximum comfort & suspension",
-    "description": "The gold standard for intercity spiritual tours. Unmatched ride comfort, plush captain seats, and exceptional highway stability.",
-    "features": ["Automatic Climate Control", "Plush Captain Seats", "Superior Suspension", "Ample Luggage Bay", "Highway Cruiser"]
+    "idealFor": "Senior citizens, VIPs, and families seeking maximum comfort & suspension",
+    "description": "The gold standard for intercity spiritual tours. Unmatched ride comfort, plush captain seats, superior shock absorption, and exceptional highway stability.",
+    "features": ["Automatic Climate Control", "Plush Captain Reclining Seats", "World-Class Shock Absorption", "Ample Luggage Bay", "Long Distance Cruiser"]
   },
   {
     "id": "urbania16",
     "name": "Force Urbania Luxury Van (16S)",
     "shortName": "Urbania (16S)",
     "category": "Luxury Van",
-    "seating": "16 Passengers + 1 Driver",
+    "image": "/images/card-fleet-lineup.png",
+    "seating": "16 Passengers + 1 Chauffeur",
     "passengers": 16,
     "luggage": "Dedicated Rear Luggage Compartment",
     "ac": true,
     "idealFor": "Corporate groups, large joint families & luxury pilgrimage circuits",
-    "description": "Ultra-modern European styling, panoramic windows, reclining high-back seats, and individual AC vents for premium group travel.",
-    "features": ["Individual AC Vents", "Panoramic Windows", "Luxury Reclining Seats", "Reading Lights & USB Ports", "Air Suspension"]
+    "description": "Ultra-modern European styling, panoramic windows, reclining high-back seats, and individual AC vents for executive group travel.",
+    "features": ["Individual AC Vents", "Panoramic Viewing Windows", "Luxury Reclining Seats", "Individual Reading Lights", "Soft Air-Suspension Ride"]
   },
   {
     "id": "tempoTraveller17",
     "name": "Force Tempo Traveller (17 Seater)",
     "shortName": "17S Tempo Traveller",
     "category": "Mini Coach",
-    "seating": "17 Passengers + 1 Driver",
+    "image": "/images/card-fleet-lineup.png",
+    "seating": "17 Passengers + 1 Chauffeur",
     "passengers": 17,
     "luggage": "Spacious Boot & Overhead Racks",
     "ac": true,
     "idealFor": "Temple groups, bhajan mandalis & extended family excursions",
     "description": "Heavy-duty, comfortable group traveller with 2x1 push-back seating, powerful front and rear AC, and knowledgeable highway drivers.",
-    "features": ["Push-Back 2x1 Seats", "Powerful Dual AC", "Overhead Storage", "LED Screen / Audio System", "Curtains & Headrests"]
+    "features": ["Push-Back 2x1 Recliner Seats", "High-Power Dual AC", "Overhead Parcel Racks", "LED Screen & Mic System", "Ample Leg Space"]
   },
   {
     "id": "tempoTraveller26",
     "name": "Force Tempo Traveller (26 Seater)",
     "shortName": "26S Tempo Traveller",
     "category": "Large Group Van",
-    "seating": "26 Passengers + 1 Driver",
+    "image": "/images/card-fleet-lineup.png",
+    "seating": "26 Passengers + 1 Chauffeur",
     "passengers": 26,
     "luggage": "Large Dedicated Luggage Space",
     "ac": true,
     "idealFor": "Pilgrimage groups, wedding parties, and temple society tours",
     "description": "Maximum capacity group van with high roof clearance, comfortable wide gangway, and strong air conditioning for long journeys.",
-    "features": ["High Roof Clearance", "Individual AC Louvers", "2x2 Reclining Seats", "Microphone System", "Heavy-Duty Highway Comfort"]
+    "features": ["High Roof Standing Clearance", "Individual AC Louvers", "2x2 Reclining Seats", "Audio & Microphone System", "Heavy-Duty Highway Comfort"]
   },
   {
     "id": "miniBus35",
     "name": "35 Seater Luxury Tourist Mini Bus",
     "shortName": "35S Mini Bus",
     "category": "Tour Bus",
+    "image": "/images/vehicles/bus.jpg",
     "seating": "35 Passengers + 2 Staff",
     "passengers": 35,
     "luggage": "Underbelly Luggage Bays + Overhead Racks",
     "ac": true,
     "idealFor": "Large pilgrimage congregations, institutional tours & darshan yatras",
     "description": "Full-size luxury tourist coach with air-suspension ride, pneumatic doors, high-back pushback seating, and professional tourist drivers.",
-    "features": ["Air Suspension", "High-Back Pushback Seats", "Huge Underbelly Luggage Space", "PA Audio System", "Chilled Central AC"]
+    "features": ["Air Suspension Ride", "High-Back Pushback Seats", "Huge Underbelly Luggage Space", "PA Audio System", "Chilled Central AC"]
   }
 ]

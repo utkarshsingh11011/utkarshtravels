@@ -7,6 +7,7 @@ export interface Vehicle {
   name: string;
   shortName: string;
   category: string;
+  image?: string;
   seating: string;
   passengers: number;
   luggage: string;
@@ -43,6 +44,7 @@ export interface RouteItem {
   name: string;
   origin: string;
   destination: string;
+  image?: string;
   packageType: string;
   distance: string;
   duration: string;

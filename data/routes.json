@@ -4,10 +4,11 @@
     "name": "Varanasi to Ayodhya Taxi Service",
     "origin": "Varanasi",
     "destination": "Ayodhya",
+    "image": "/images/destinations/ayodhya.jpg",
     "packageType": "Same Day Darshan",
     "distance": "220 km (one way)",
     "duration": "4.5 hours via Purvanchal Expressway",
-    "summary": "Embark on a sacred journey from the City of Shiva (Kashi) to the birthplace of Lord Rama (Ayodhya Dham). Experience hassle-free same-day darshan with verified local drivers, clean AC vehicles, and door-to-door pickup from Varanasi.",
+    "summary": "Embark on a sacred journey from the City of Shiva (Kashi) to the holy birthplace of Lord Rama (Ayodhya Dham). Experience hassle-free same-day darshan with verified local drivers, clean AC vehicles, and door-to-door pickup from Varanasi.",
     "pricing": {
       "dzire": 5500,
       "ertiga": 7500,
@@ -28,7 +29,7 @@
       {
         "time": "06:00 AM",
         "title": "Early Morning Pickup from Varanasi",
-        "description": "Our professional chauffeur picks you up from your hotel, Varanasi Cantt, Banaras Station, or airport. Smooth highway cruise via Sultanpur/Purvanchal."
+        "description": "Our professional chauffeur picks you up from your hotel, Varanasi Cantt, Banaras Station, or Babatpur Airport. Smooth cruise via Purvanchal."
       },
       {
         "time": "10:30 AM",
@@ -97,6 +98,7 @@
     "name": "Varanasi to Prayagraj Taxi Service",
     "origin": "Varanasi",
     "destination": "Prayagraj",
+    "image": "/images/destinations/prayagraj.jpg",
     "packageType": "Same Day Sangam Snan",
     "distance": "125 km (one way)",
     "duration": "2.5 - 3 hours via NH19",
@@ -136,7 +138,7 @@
       {
         "time": "02:30 PM",
         "title": "Anand Bhavan & Local Sightseeing",
-        "description": "Visit the Nehru family historic memorial or proceed for traditional Awadhi / Purvanchal lunch."
+        "description": "Visit the historic memorial or proceed for traditional Awadhi / Purvanchal lunch."
       },
       {
         "time": "05:00 PM - 07:30 PM",
@@ -180,6 +182,7 @@
     "name": "Varanasi to Vindhyachal Taxi Service",
     "origin": "Varanasi",
     "destination": "Vindhyachal (Mirzapur)",
+    "image": "/images/destinations/vindhyachal.jpg",
     "packageType": "Same Day Shaktipeeth Darshan",
     "distance": "70 km (one way)",
     "duration": "1.5 - 2 hours",
@@ -259,6 +262,7 @@
     "name": "Varanasi – Vindhyachal – Prayagraj Taxi Circuit",
     "origin": "Varanasi",
     "destination": "Vindhyachal & Prayagraj",
+    "image": "/images/destinations/prayagraj.jpg",
     "packageType": "Same Day Combo Circuit",
     "distance": "260 km (total circuit)",
     "duration": "Full Day (12 - 14 hours)",
@@ -337,10 +341,11 @@
     "name": "Varanasi to Gaya & Bodh Gaya Taxi Service",
     "origin": "Varanasi",
     "destination": "Gaya & Bodh Gaya",
+    "image": "/images/destinations/bodhgaya.jpg",
     "packageType": "Same Day Pind Daan & Darshan",
     "distance": "250 km (one way)",
     "duration": "5 - 6 hours via Grand Trunk Road (NH19)",
-    "summary": "Specialized reliable cab service from Varanasi to Gaya for ancestral Pind Daan rituals at Vishnupad Temple and enlightenment tourism at Bodh Gaya's UNESCO World Heritage Mahabodhi Temple.",
+    "summary": "Specialized reliable cab service from Varanasi to Gaya for ancestral Pind Daan rituals at Vishnupad Temple and spiritual tourism at Bodh Gaya's UNESCO World Heritage Mahabodhi Temple.",
     "pricing": {
       "dzire": 7000,
       "ertiga": 8500,
@@ -421,6 +426,7 @@
     "name": "3-Day Multi-City Pilgrimage Taxi Package",
     "origin": "Varanasi",
     "destination": "Prayagraj – Chitrakoot – Ayodhya Circuit",
+    "image": "/images/destinations/chitrakoot.jpg",
     "packageType": "3 Days / 2 Nights Tour",
     "distance": "~850 km total circuit",
     "duration": "3 Days / 2 Nights",

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Cinzel } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -17,6 +17,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800", "900"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.domain),
   title: {
@@ -27,6 +33,7 @@ export const metadata: Metadata = {
     "Book verified AC cabs from Varanasi to Ayodhya, Prayagraj, Vindhyachal, Gaya & Chitrakoot. Transparent fares, Dzire from ₹2,400. 24/7 WhatsApp booking from Mehmoorganj.",
   keywords: [
     "utkarsh travels varanasi",
+    "utkarsh singh varanasi taxi",
     "varanasi taxi service",
     "varanasi to ayodhya cab fare",
     "varanasi prayagraj taxi",
@@ -35,7 +42,7 @@ export const metadata: Metadata = {
     "kashi darshan cab",
     "innova crysta varanasi rental"
   ],
-  authors: [{ name: siteConfig.name, url: siteConfig.domain }],
+  authors: [{ name: `${siteConfig.founder} - ${siteConfig.name}`, url: siteConfig.domain }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
   formatDetection: {
@@ -82,14 +89,17 @@ export default function RootLayout({
   const localBusinessJsonLd = getLocalBusinessSchema();
 
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth`}>
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} ${cinzel.variable} h-full scroll-smooth`}
+    >
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-slate-950">
+      <body className="min-h-full flex flex-col bg-[#FAF8F5] text-slate-900 font-sans antialiased selection:bg-amber-500 selection:text-slate-950">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

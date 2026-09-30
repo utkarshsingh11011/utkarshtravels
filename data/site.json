@@ -1,6 +1,9 @@
 {
   "name": "Utkarsh Travels",
+  "founder": "Utkarsh Singh",
   "tagline": "Your Journey • Our Priority",
+  "slogan": "Explore India's Spiritual & Cultural Heritage",
+  "motto": "Discover More Than Just a Destination...",
   "domain": "https://utkarshtravels.com",
   "phone": "+919648974238",
   "phoneDisplay": "+91 9648974238",
@@ -16,14 +19,13 @@
     "latitude": 25.3076,
     "longitude": 82.9739
   },
-  "hours": "Mo-Su 00:00-24:00",
+  "hours": "Mo-Su 00:00-24:00 (24/7 Available)",
   "priceRange": "₹₹",
   "areaServed": [
     "Varanasi",
     "Ayodhya",
     "Prayagraj",
     "Vindhyachal",
-    "Gaya",
     "Bodh Gaya",
     "Chitrakoot",
     "Kashi"
@@ -32,14 +34,32 @@
     "whatsapp": "https://wa.me/919648974238"
   },
   "inclusions": [
-    "Dedicated clean AC vehicle with polite, experienced driver",
-    "Pickup from Varanasi Hotel, Airport, or Railway Station (Cantt / Banaras / DDU)",
-    "Fuel, state border permits, and standard driver allowances",
-    "24/7 dedicated trip assistance"
+    "Dedicated clean, sanitized AC vehicle with polite, background-checked driver",
+    "Doorstep pickup from Hotel, Babatpur Airport (VNS), or Railway Stations (Varanasi Cantt / Banaras / DDU)",
+    "Fuel, toll assistance, and standard driver allowances included",
+    "24/7 dedicated trip coordinator assistance on phone & WhatsApp"
   ],
   "exclusions": [
-    "Toll taxes and monument / temple parking charges (payable at actuals)",
-    "Monument entry fees, guide charges, or VIP darshan passes",
-    "Meals, refreshments, and personal expenses"
+    "Toll taxes and temple / monument parking tickets (charged at actual receipts)",
+    "Monument entry fees, guide charges, or VIP darshan / puja passes",
+    "Personal meals and refreshments"
+  ],
+  "corePillars": [
+    {
+      "title": "Local & Outstation Tour Packages",
+      "desc": "Specialized in Kashi darshan, Ayodhya Ram Mandir, Prayagraj Sangam, Vindhyachal, and Bodh Gaya circuits."
+    },
+    {
+      "title": "Comfortable & Safe Rides",
+      "desc": "Modern fleet equipped with chilled AC, ergonomic seating, and rigorous safety checks."
+    },
+    {
+      "title": "Reliable Service",
+      "desc": "On-time arrival guarantee with zero cancellation surprises and transparent upfront tariffs."
+    },
+    {
+      "title": "24/7 Support",
+      "desc": "Direct round-the-clock contact with Utkarsh Singh and local Varanasi support team."
+    }
   ]
 }

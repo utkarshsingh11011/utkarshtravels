@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   Car,
@@ -8,57 +9,111 @@ import {
   MessageCircle,
   ArrowRight,
   CheckCircle2,
-  Calendar,
   Sparkles,
   Users,
   Compass,
+  Star,
+  Award,
 } from "lucide-react";
 import siteConfig from "@/data/site.json";
 import { getAllRoutes, formatINR } from "@/lib/data";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import FleetShowcase from "@/components/FleetShowcase";
+import VaranasiSkyline from "@/components/VaranasiSkyline";
 
 export default function HomePage() {
   const routes = getAllRoutes();
 
-  return (
-    <div className="space-y-0">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 py-16 sm:py-24 lg:py-32 border-b border-slate-800">
-        {/* Subtle background glow effect */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-amber-500/10 blur-[120px] pointer-events-none rounded-full" />
+  // Top destination arches matching the business card
+  const topDestinations = [
+    {
+      name: "Ayodhya",
+      title: "Shri Ram Janmabhoomi & Saryu",
+      image: "/images/destinations/ayodhya.jpg",
+      slug: "varanasi-to-ayodhya-taxi-service",
+      fare: "From ₹5,500",
+      description: "Ram Lalla darshan, Hanuman Garhi, and evening Saryu Maha Aarti.",
+    },
+    {
+      name: "Prayagraj",
+      title: "Triveni Sangam Holy Snan",
+      image: "/images/destinations/prayagraj.jpg",
+      slug: "varanasi-to-prayagraj-taxi-service",
+      fare: "From ₹3,500",
+      description: "Sacred confluence dip, Bade Hanuman Ji temple, and Alopi Devi.",
+    },
+    {
+      name: "Vindhyachal",
+      title: "Maa Vindhyavasini Shaktipeeth",
+      image: "/images/destinations/vindhyachal.jpg",
+      slug: "varanasi-to-vindhyachal-taxi-service",
+      fare: "From ₹2,400",
+      description: "Sacred Trikona Parikrama covering Kali Khoh & Ashta Bhuja hills.",
+    },
+    {
+      name: "Bodh Gaya & Gaya",
+      title: "Mahabodhi & Pind Daan",
+      image: "/images/destinations/bodhgaya.jpg",
+      slug: "varanasi-to-gaya-taxi-service",
+      fare: "From ₹7,000",
+      description: "Vishnupad ancestral rites and the UNESCO sacred Bodhi Tree.",
+    },
+    {
+      name: "Chitrakoot Dham",
+      title: "Sacred Ramghat & Kamadgiri",
+      image: "/images/destinations/chitrakoot.jpg",
+      slug: "3-day-multi-city-pilgrimage-taxi",
+      fare: "From ₹12,000",
+      description: "Mandakini river Aarti, Gupt Godavari caves & 3-day pilgrimage circuit.",
+    },
+    {
+      name: "Varanasi (Kashi)",
+      title: "Ganga Aarti & Temple Circuit",
+      image: "/images/destinations/varanasi.jpg",
+      slug: "varanasi-to-ayodhya-taxi-service",
+      fare: "Custom",
+      description: "Dashashwamedh Ghat Aarti, Kashi Vishwanath, and Kaal Bhairav darshan.",
+    },
+  ];
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  return (
+    <div className="space-y-0 bg-[#FAF8F5] text-slate-900">
+      {/* Hero Section: Majestic Varanasi Sunrise Ghats with Royal Navy Gradient */}
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#0A1931] text-white py-20 lg:py-28">
+        {/* Background Image with Gradient Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/destinations/varanasi.jpg"
+            alt="Varanasi Ganga Ghats Sunrise"
+            fill
+            priority
+            className="object-cover object-center opacity-30 mix-blend-luminosity scale-105 animate-in fade-in duration-1000"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1931] via-[#0A1931]/80 to-[#050D1B]/95" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/15 via-transparent to-transparent" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Column: Headlines & CTAs */}
+            {/* Left Column: Headlines & Business Card Core Message */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-wide uppercase">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Varanasi’s Leading Pilgrimage & Intercity Cab Service</span>
+              {/* Badge */}
+              <div className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/50 text-amber-300 text-xs sm:text-sm font-bold tracking-wide uppercase shadow-sm">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>Explore India&apos;s Spiritual &amp; Cultural Heritage</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
-                Sacred Journeys from <span className="text-amber-400">Kashi</span>, Tailored with Care.
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12] font-serif">
+                Sacred Pilgrimage Journeys from <span className="text-amber-400">Kashi</span>, Tailored with Devotion.
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Discover smooth, transparent, and verified cab rentals from Varanasi to Ayodhya Dham, Prayagraj Sangam, Vindhyachal Shaktipeeth, and Gaya. Clean AC cars, courteous chauffeurs, and upfront tariffs.
+              <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                Experience authentic, hassle-free taxi rentals and luxury tour packages from Varanasi to Ayodhya Ram Mandir, Prayagraj Sangam, Vindhyachal Shaktipeeth, and Gaya. Managed personally by <strong className="text-amber-300 font-bold">{siteConfig.founder}</strong>.
               </p>
 
-              {/* Badges / Highlights */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 text-xs sm:text-sm text-slate-300">
-                <span className="flex items-center space-x-1.5 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Doorstep Pickup</span>
-                </span>
-                <span className="flex items-center space-x-1.5 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Fixed Tariffs</span>
-                </span>
-                <span className="flex items-center space-x-1.5 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Sedan to 35S Mini Bus</span>
-                </span>
+              {/* Tagline Cursive Quote */}
+              <div className="pt-1 flex items-center justify-center lg:justify-start space-x-3 text-amber-300 font-serif italic text-lg sm:text-xl">
+                <span>&ldquo;{siteConfig.tagline}&rdquo;</span>
               </div>
 
               {/* CTAs */}
@@ -67,257 +122,295 @@ export default function HomePage() {
                   href={getWhatsAppUrl({})}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base shadow-xl shadow-emerald-600/25 transition-all hover:scale-[1.02]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 px-7 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-base shadow-xl shadow-amber-500/25 transition-all hover:scale-[1.02]"
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>Book via WhatsApp</span>
+                  <MessageCircle className="w-5 h-5 fill-slate-950 text-amber-500" />
+                  <span>Instant WhatsApp Booking</span>
                 </a>
 
                 <a
                   href={`tel:${siteConfig.phone}`}
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 px-6 py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-base border border-slate-700 transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 px-6 py-4 rounded-2xl bg-slate-800/90 hover:bg-slate-700 text-white font-semibold text-base border-2 border-amber-500/40 transition-all"
                 >
                   <Phone className="w-5 h-5 text-amber-400" />
                   <span>Call {siteConfig.phoneDisplay}</span>
                 </a>
               </div>
+
+              {/* Verification Badges */}
+              <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-slate-300">
+                <span className="flex items-center space-x-1.5 bg-black/30 px-3 py-1.5 rounded-lg border border-white/10">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <span>Mehmoorganj, Varanasi Office</span>
+                </span>
+                <span className="flex items-center space-x-1.5 bg-black/30 px-3 py-1.5 rounded-lg border border-white/10">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <span>Sedan to 35S Mini Bus</span>
+                </span>
+                <span className="flex items-center space-x-1.5 bg-black/30 px-3 py-1.5 rounded-lg border border-white/10">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <span>24/7 Verified Chauffeurs</span>
+                </span>
+              </div>
             </div>
 
-            {/* Right Column: Quick Rate Card Snapshot */}
+            {/* Right Column: Business Card Spotlight */}
             <div className="lg:col-span-5">
-              <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-sm relative">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
-                  <div>
-                    <h3 className="text-lg font-bold text-white flex items-center space-x-2">
-                      <Compass className="w-5 h-5 text-amber-400" />
-                      <span>Popular Pilgrimage Tariffs</span>
-                    </h3>
-                    <p className="text-xs text-slate-400 mt-0.5">Round-trip same day fares (AC Sedan Dzire)</p>
-                  </div>
-                  <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
-                    Live Rates
+              <div className="bg-[#0C2044]/95 border-2 border-amber-400/60 rounded-3xl p-6 sm:p-7 shadow-2xl backdrop-blur-md relative overflow-hidden group">
+                <div className="flex items-center justify-between border-b border-amber-500/30 pb-3 mb-4">
+                  <span className="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center space-x-1.5">
+                    <Award className="w-4 h-4" />
+                    <span>Official Business Card</span>
+                  </span>
+                  <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
+                    Verified Operator
                   </span>
                 </div>
 
-                <div className="space-y-3">
-                  {routes.slice(0, 4).map((route) => (
-                    <Link
-                      key={route.slug}
-                      href={`/${route.slug}`}
-                      className="group flex items-center justify-between p-3 rounded-2xl bg-slate-950/60 hover:bg-slate-800/80 border border-slate-800/80 hover:border-slate-700 transition-all"
-                    >
-                      <div>
-                        <span className="font-semibold text-sm text-slate-200 group-hover:text-amber-400 transition-colors block">
-                          {route.name}
-                        </span>
-                        <span className="text-xs text-slate-400">{route.packageType}</span>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-base font-bold text-amber-400 font-mono block">
-                          {formatINR(route.pricing.dzire)}
-                        </span>
-                        <span className="text-[10px] text-slate-500 group-hover:text-slate-400 flex items-center justify-end space-x-1">
-                          <span>View rates</span>
-                          <ArrowRight className="w-3 h-3" />
-                        </span>
-                      </div>
-                    </Link>
-                  ))}
+                {/* Real Business Card Image */}
+                <div className="relative rounded-2xl overflow-hidden border border-amber-500/30 shadow-lg aspect-[512/307]">
+                  <Image
+                    src="/images/business-card.png"
+                    alt="Utkarsh Travels Official Business Card - Utkarsh Singh"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-slate-800 text-center">
-                  <Link
-                    href="/contact"
-                    className="text-xs text-amber-400 hover:text-amber-300 font-medium inline-flex items-center space-x-1"
+                <div className="mt-4 pt-3 border-t border-amber-500/20 flex items-center justify-between text-xs">
+                  <div>
+                    <span className="font-bold text-white block">{siteConfig.founder}</span>
+                    <span className="text-slate-400 text-[11px]">Tour Coordinator • Mehmoorganj</span>
+                  </div>
+                  <a
+                    href={`tel:${siteConfig.phone}`}
+                    className="px-3.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold hover:bg-amber-400 transition-colors"
                   >
-                    <span>Need a custom itinerary or multi-day booking? Click here</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </Link>
+                    Direct Call
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Golden Varanasi Temple Skyline Wave at bottom of hero */}
+        <div className="absolute bottom-0 left-0 right-0 pointer-events-none opacity-40 flex justify-center">
+          <VaranasiSkyline className="w-full max-w-4xl h-24" color="#F59E0B" />
+        </div>
       </section>
 
-      {/* Programmatic Routes Grid Section */}
-      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Top Destinations Section: Arched Frames matching the Business Card */}
+      <section id="destinations" className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400">
-            Top Pilgrimage & Intercity Circuits
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-4">
-            Curated Taxi Packages from Varanasi
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 text-xs font-bold uppercase tracking-wider">
+            <Compass className="w-3.5 h-3.5 text-amber-600" />
+            <span>Our Top Destinations</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0A1931] tracking-tight mt-3 font-serif">
+            Sacred Pilgrimage &amp; Outstation Circuits
           </h2>
-          <p className="text-slate-400 mt-4 text-base sm:text-lg">
-            Complete route details, verified rate cards from Dzire to 35-Seater Mini Bus, itinerary highlights, and direct WhatsApp booking.
+          <p className="text-slate-600 mt-3 text-base sm:text-lg">
+            Immerse yourself in the spiritual heritage of northern India with our private door-to-door cab packages from Varanasi.
           </p>
         </div>
 
+        {/* Arched Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {routes.map((route) => {
-            return (
-              <div
-                key={route.slug}
-                className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-7 flex flex-col justify-between hover:border-slate-700 transition-all hover:shadow-2xl hover:shadow-amber-500/5 group"
-              >
-                <div>
-                  {/* Category & Badge */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-                      {route.packageType}
-                    </span>
-                    <span className="text-xs text-slate-400">{route.duration}</span>
+          {topDestinations.map((dest, idx) => (
+            <div
+              key={idx}
+              className="bg-white rounded-3xl overflow-hidden border-2 border-slate-200/80 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 group flex flex-col justify-between"
+            >
+              <div>
+                {/* Arched Photo Window (Jharokha Style matching card) */}
+                <div className="relative h-60 w-full overflow-hidden bg-slate-900 rounded-b-[40px]">
+                  <Image
+                    src={dest.image}
+                    alt={dest.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                  {/* Top Destination Pill Badge */}
+                  <div className="absolute top-4 left-4 bg-[#0A1931]/90 backdrop-blur-md px-3.5 py-1 rounded-full border border-amber-400 text-xs font-bold text-amber-300">
+                    {dest.name}
                   </div>
 
-                  {/* Route Title */}
-                  <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
-                    {route.name}
-                  </h3>
-
-                  <p className="text-xs text-slate-400 mt-2.5 line-clamp-3 leading-relaxed">
-                    {route.summary}
-                  </p>
-
-                  {/* Highlights Bullet points */}
-                  <div className="mt-5 space-y-1.5">
-                    {route.highlights.slice(0, 3).map((item, idx) => (
-                      <div key={idx} className="flex items-start space-x-2 text-xs text-slate-300">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                        <span className="line-clamp-1">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Pricing Overview */}
-                  <div className="mt-6 pt-5 border-t border-slate-800 grid grid-cols-2 gap-3 text-xs">
-                    <div className="bg-slate-950 p-3 rounded-2xl border border-slate-800/80">
-                      <span className="text-slate-400 block text-[11px]">Sedan (Dzire)</span>
-                      <span className="text-base font-bold text-amber-400 font-mono">
-                        {formatINR(route.pricing.dzire)}
-                      </span>
-                    </div>
-                    <div className="bg-slate-950 p-3 rounded-2xl border border-slate-800/80">
-                      <span className="text-slate-400 block text-[11px]">Innova Crysta</span>
-                      <span className="text-base font-bold text-amber-400 font-mono">
-                        {formatINR(route.pricing.innovaCrysta)}
-                      </span>
-                    </div>
+                  {/* Fare badge */}
+                  <div className="absolute bottom-4 right-4 bg-amber-500 text-slate-950 font-black px-3 py-1 rounded-xl text-xs font-mono shadow-md">
+                    {dest.fare}
                   </div>
                 </div>
 
-                {/* Actions */}
-                <div className="mt-6 pt-4 border-t border-slate-800 grid grid-cols-2 gap-2">
-                  <Link
-                    href={`/${route.slug}`}
-                    className="flex items-center justify-center space-x-1.5 py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-xs transition-colors"
-                  >
-                    <span>View Rates</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-
-                  <a
-                    href={getWhatsAppUrl({
-                      slug: route.slug,
-                      routeName: route.name,
-                      packageType: route.packageType,
-                    })}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-1.5 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-colors shadow-md shadow-emerald-600/20"
-                  >
-                    <MessageCircle className="w-3.5 h-3.5" />
-                    <span>WhatsApp</span>
-                  </a>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#0A1931] font-serif group-hover:text-amber-600 transition-colors">
+                    {dest.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                    {dest.description}
+                  </p>
                 </div>
               </div>
-            );
-          })}
+
+              {/* Action Buttons */}
+              <div className="p-6 pt-0 border-t border-slate-100 flex items-center justify-between gap-3">
+                <Link
+                  href={`/${dest.slug}`}
+                  className="flex-1 inline-flex items-center justify-center space-x-1.5 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs transition-colors"
+                >
+                  <span>View Rates</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+
+                <a
+                  href={getWhatsAppUrl({
+                    slug: dest.slug,
+                    routeName: dest.name,
+                    packageType: "Tour Package",
+                  })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center space-x-1.5 py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs shadow-md transition-all"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 fill-slate-950 text-amber-500" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Fleet Showcase Section */}
+      {/* Fleet Showcase with Real Vehicle Images & Business Card Lineup */}
       <FleetShowcase />
 
-      {/* Why Choose Utkarsh Travels (E-E-A-T & Trust) */}
-      <section id="why-us" className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-2xl">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400">
-              Local Expertise & Reliability
+      {/* Authoritative Rate Matrix Section */}
+      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700">
+            Transparent Pricing Guarantee
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0A1931] tracking-tight mt-3 font-serif">
+            Popular Tour Rate Cards
+          </h2>
+          <p className="text-slate-600 mt-3 text-base">
+            Clear, all-inclusive fuel tariffs from Varanasi. No hidden booking charges.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {routes.map((route) => (
+            <div
+              key={route.slug}
+              className="bg-white border-2 border-slate-200 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
+                  <span className="font-semibold text-amber-600 uppercase tracking-wider">{route.packageType}</span>
+                  <span>{route.duration}</span>
+                </div>
+
+                <h3 className="text-lg font-bold text-[#0A1931] font-serif">{route.name}</h3>
+                <p className="text-xs text-slate-600 mt-2 line-clamp-2">{route.summary}</p>
+
+                {/* Price Highlights */}
+                <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
+                  <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
+                    <span className="text-slate-500 block text-[11px]">Sedan (Dzire)</span>
+                    <span className="text-base font-bold text-amber-600 font-mono">
+                      {formatINR(route.pricing.dzire)}
+                    </span>
+                  </div>
+                  <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
+                    <span className="text-slate-500 block text-[11px]">Innova Crysta</span>
+                    <span className="text-base font-bold text-[#0A1931] font-mono">
+                      {formatINR(route.pricing.innovaCrysta)}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                <Link
+                  href={`/${route.slug}`}
+                  className="flex-1 flex items-center justify-center space-x-1.5 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs transition-colors"
+                >
+                  <span>Detailed Rate Card</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <a
+                  href={getWhatsAppUrl({
+                    slug: route.slug,
+                    routeName: route.name,
+                    packageType: route.packageType,
+                  })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center p-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold transition-colors shadow-sm"
+                  aria-label="Book on WhatsApp"
+                >
+                  <MessageCircle className="w-4 h-4 fill-slate-950" />
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Why Pilgrims Trust Utkarsh Travels */}
+      <section className="py-16 sm:py-24 bg-[#0A1931] text-white relative overflow-hidden border-t-2 border-amber-500/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <span className="text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300">
+              Varanasi Local Expertise
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-4">
-              Why Pilgrims & Travelers Trust Utkarsh Travels
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mt-3 font-serif">
+              Why Pilgrims &amp; Families Choose Utkarsh Travels
             </h2>
-            <p className="text-slate-400 mt-3 text-base">
-              Headquartered at Mehmoorganj, Varanasi, we combine authentic local hospitality with modern vehicle standards.
+            <p className="text-slate-300 mt-3 text-base">
+              With our operational headquarters in Mehmoorganj, Varanasi, we offer genuine warmth and punctuality.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800/80">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4">
-                <ShieldCheck className="w-6 h-6 text-amber-400" />
+            {siteConfig.corePillars.map((pillar, idx) => (
+              <div
+                key={idx}
+                className="bg-[#0D2244] p-6 rounded-3xl border border-amber-500/30 hover:border-amber-400 transition-colors"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-4">
+                  <Star className="w-6 h-6 fill-amber-400" />
+                </div>
+                <h3 className="font-bold text-white text-base font-serif">{pillar.title}</h3>
+                <p className="text-xs text-slate-300 mt-2 leading-relaxed">{pillar.desc}</p>
               </div>
-              <h3 className="font-bold text-white text-base">Experienced Chauffeurs</h3>
-              <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                Our drivers have deep knowledge of pilgrimage shrines, temple timings, VIP darshan rules, and highway conditions.
-              </p>
-            </div>
-
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800/80">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6 text-emerald-400" />
-              </div>
-              <h3 className="font-bold text-white text-base">Zero-Delay Guarantee</h3>
-              <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                Whether arriving at Babatpur Airport (VNS) or Varanasi Cantt / Banaras Railway Station, your cab arrives 15 minutes early.
-              </p>
-            </div>
-
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800/80">
-              <div className="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center mb-4">
-                <Car className="w-6 h-6 text-sky-400" />
-              </div>
-              <h3 className="font-bold text-white text-base">Spotless, Chilled AC Cabs</h3>
-              <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                Every vehicle is thoroughly washed, sanitized, and air-conditioned before reporting for your journey.
-              </p>
-            </div>
-
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800/80">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4">
-                <MapPin className="w-6 h-6 text-purple-400" />
-              </div>
-              <h3 className="font-bold text-white text-base">Physical Varanasi Office</h3>
-              <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                We are not an anonymous aggregator. Visit our office in Mehmoorganj, Varanasi or talk to our live team 24/7.
-              </p>
-            </div>
+            ))}
           </div>
 
-          {/* Quick Contact Banner */}
-          <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div className="text-center sm:text-left">
-              <h4 className="text-lg font-bold text-white">Have a specific tour plan in mind?</h4>
-              <p className="text-xs text-slate-400 mt-1">
-                Custom itineraries, group packages, and temple circuits tailored to your family&apos;s comfort.
+          {/* Quick Consultation Ribbon */}
+          <div className="mt-14 p-8 rounded-3xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+            <div>
+              <h3 className="text-2xl font-black font-serif">Need a Custom Pilgrimage Itinerary?</h3>
+              <p className="text-xs sm:text-sm text-slate-900 mt-1 font-medium">
+                Talk directly with Utkarsh Singh for VIP temple darshan assistance, custom multi-day circuits, or group coach arrangements.
               </p>
             </div>
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 shrink-0">
               <Link
                 href="/contact"
-                className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-xs border border-slate-700 transition-colors"
+                className="px-6 py-3 rounded-2xl bg-slate-950 hover:bg-slate-900 text-white font-bold text-xs transition-colors shadow-lg"
               >
-                Inquire Online
+                Submit Form
               </Link>
               <a
                 href={getWhatsAppUrl({})}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-md shadow-emerald-600/20 transition-colors flex items-center space-x-1.5"
+                className="px-6 py-3 rounded-2xl bg-white hover:bg-slate-100 text-slate-950 font-black text-xs transition-colors shadow-lg flex items-center space-x-1.5"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-4 h-4 fill-slate-950 text-white" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>

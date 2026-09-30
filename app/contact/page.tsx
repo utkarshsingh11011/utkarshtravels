@@ -1,332 +1,376 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle2, Clock } from "lucide-react";
+import Image from "next/image";
+import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle2, Clock, Sparkles, Award } from "lucide-react";
 import siteConfig from "@/data/site.json";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [responseUrls, setResponseUrls] = useState<{ whatsappUrl?: string; mailtoUrl?: string }>({});
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     travelDate: "",
-    destination: "Ayodhya",
-    passengers: "4",
+    destination: "Varanasi to Ayodhya",
+    passengers: "1-4 (Sedan)",
     vehiclePreference: "Swift Dzire (4S)",
+    pickupLocation: "Hotel / Varanasi Cantt",
     message: "",
-    honeypot: "", // anti-spam bot trap
+    honeypot: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (formData.honeypot) return;
 
-    // Honeypot check
-    if (formData.honeypot) {
-      return;
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      setResponseUrls({
+        whatsappUrl: data.whatsappUrl,
+        mailtoUrl: data.mailtoUrl,
+      });
+      setSubmitted(true);
+
+      // Automatically trigger WhatsApp direct send
+      if (data.whatsappUrl) {
+        window.open(data.whatsappUrl, "_blank");
+      }
+    } catch (err) {
+      console.error("Form error:", err);
+      // Fallback
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
     }
-
-    setSubmitted(true);
   };
 
   const directWhatsAppInquiry = () => {
-    const text = `Hello Utkarsh Travels,\n\nName: ${formData.name || "Traveler"}\nPhone: ${formData.phone || "Not provided"}\nTravel Date: ${formData.travelDate || "Flexible"}\nDestination: ${formData.destination}\nGroup Size: ${formData.passengers} passengers\nPreferred Vehicle: ${formData.vehiclePreference}\nSpecial Notes: ${formData.message || "None"}\n\nPlease provide a customized quote and cab availability.`;
+    const text = `*NEW TOUR INQUIRY - UTKARSH TRAVELS*\n\n*Name:* ${formData.name || "Traveler"}\n*Phone:* ${formData.phone || "Not provided"}\n*Travel Date:* ${formData.travelDate || "Flexible"}\n*Destination:* ${formData.destination}\n*Group Size:* ${formData.passengers}\n*Vehicle:* ${formData.vehiclePreference}\n*Pickup:* ${formData.pickupLocation}\n*Notes:* ${formData.message || "None"}\n\nPlease share availability and quote.`;
     window.open(`https://wa.me/919648974238?text=${encodeURIComponent(text)}`, "_blank");
   };
 
   return (
-    <div className="py-6 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-      <Breadcrumbs items={[{ name: "Contact & Custom Quote", url: "/contact" }]} />
+    <div className="bg-[#FAF8F5] text-slate-900 py-6 sm:py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <Breadcrumbs items={[{ name: "Contact & Custom Quote", url: "/contact" }]} />
 
-      <div className="text-center max-w-3xl mx-auto">
-        <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400">
-          Varanasi Booking Desk
-        </span>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mt-4">
-          Contact Utkarsh Travels
-        </h1>
-        <p className="text-slate-400 mt-3 text-base sm:text-lg">
-          Plan a personalized pilgrimage circuit, multi-day family tour, or group coach rental from Varanasi. Reach us directly or submit your requirements below.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column: NAP & Map */}
-        <div className="lg:col-span-5 space-y-6">
-          {/* NAP Card */}
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
-            <h2 className="text-xl font-bold text-white border-b border-slate-800 pb-3">
-              Office Details & Contacts
-            </h2>
-
-            <div className="space-y-4 text-sm text-slate-300">
-              <div className="flex items-start space-x-3.5">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0 border border-amber-500/20">
-                  <MapPin className="w-5 h-5 text-amber-400" />
-                </div>
-                <div>
-                  <strong className="text-white block">Utkarsh Travels</strong>
-                  <span className="text-slate-400 text-xs">
-                    {siteConfig.address.street}, {siteConfig.address.locality}
-                    <br />
-                    {siteConfig.address.region} - {siteConfig.address.postalCode}, India
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3.5">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0 border border-amber-500/20">
-                  <Phone className="w-5 h-5 text-amber-400" />
-                </div>
-                <div>
-                  <strong className="text-white block">Call Directly</strong>
-                  <a
-                    href={`tel:${siteConfig.phone}`}
-                    className="text-amber-400 hover:text-amber-300 font-medium text-xs"
-                  >
-                    {siteConfig.phoneDisplay}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3.5">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/20">
-                  <MessageCircle className="w-5 h-5 text-emerald-400" />
-                </div>
-                <div>
-                  <strong className="text-white block">WhatsApp Booking</strong>
-                  <a
-                    href={getWhatsAppUrl({ slug: "contact" })}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-emerald-400 hover:text-emerald-300 font-medium text-xs"
-                  >
-                    Chat with Booking Desk
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3.5">
-                <div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center shrink-0 border border-sky-500/20">
-                  <Mail className="w-5 h-5 text-sky-400" />
-                </div>
-                <div>
-                  <strong className="text-white block">Email Inquiries</strong>
-                  <a
-                    href={`mailto:${siteConfig.email}`}
-                    className="text-sky-400 hover:text-sky-300 font-medium text-xs"
-                  >
-                    {siteConfig.email}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3.5 pt-2 border-t border-slate-800">
-                <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center shrink-0">
-                  <Clock className="w-5 h-5 text-slate-400" />
-                </div>
-                <div>
-                  <strong className="text-white block text-xs">Operating Hours</strong>
-                  <span className="text-slate-400 text-xs">24 Hours / 7 Days a week</span>
-                </div>
-              </div>
-            </div>
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            <span>Direct Coordinator Access</span>
           </div>
-
-          {/* Embedded Google Map */}
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-xl">
-            <div className="p-4 border-b border-slate-800">
-              <h3 className="text-sm font-semibold text-white">Google Map Location — Mehmoorganj, Varanasi</h3>
-            </div>
-            <div className="aspect-video w-full">
-              <iframe
-                title="Utkarsh Travels Mehmoorganj Varanasi Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14429.083437559132!2d82.9739!3d25.3076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2de266ab0e55%3A0x673cecbce5a210ef!2sMahmoorganj%2C%20Varanasi%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1711800000000!5m2!1sen!2sin"
-                className="w-full h-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </div>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A1931] tracking-tight mt-3 font-serif">
+            Contact Utkarsh Travels
+          </h1>
+          <p className="text-slate-600 mt-3 text-base sm:text-lg">
+            Plan a tailored pilgrimage circuit, book luxury group coaches, or request instant taxi dispatch in Varanasi. Inquiries are routed immediately to <strong className="text-slate-900 font-bold">{siteConfig.founder}</strong> on WhatsApp and email.
+          </p>
         </div>
 
-        {/* Right Column: Inquiry Form */}
-        <div className="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
-          {submitted ? (
-            <div className="text-center py-12 space-y-5">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
-                <CheckCircle2 className="w-8 h-8" />
-              </div>
-              <h2 className="text-2xl font-bold text-white">Inquiry Received!</h2>
-              <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
-                Thank you for reaching out to Utkarsh Travels. Our trip coordinator will review your requirements and respond shortly.
-              </p>
-              <div className="pt-4">
-                <button
-                  type="button"
-                  onClick={directWhatsAppInquiry}
-                  className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-lg shadow-emerald-600/25 transition-all"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Send Directly to WhatsApp for Priority Reply</span>
-                </button>
-              </div>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <h2 className="text-2xl font-bold text-white">Request a Custom Tour Quote</h2>
-                <p className="text-xs text-slate-400 mt-1">
-                  Fill in your travel preferences and we will prepare a tailor-made tariff for your group.
-                </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          {/* Left Column: Business Card & NAP */}
+          <div className="lg:col-span-5 space-y-6">
+            {/* Business Card Visual Showcase */}
+            <div className="bg-[#0A1931] text-white p-6 rounded-3xl border-2 border-amber-500/40 shadow-xl space-y-4">
+              <div className="flex items-center justify-between border-b border-amber-500/30 pb-3">
+                <span className="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center space-x-1.5">
+                  <Award className="w-4 h-4" />
+                  <span>Official Business Card</span>
+                </span>
+                <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
+                  Verified Contact
+                </span>
               </div>
 
-              {/* Anti-spam honeypot (hidden) */}
-              <input
-                type="text"
-                name="honeypot"
-                value={formData.honeypot}
-                onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
-                className="hidden"
-                tabIndex={-1}
-                autoComplete="off"
-              />
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                    Your Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Ramesh Sharma"
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                    Phone / WhatsApp Number *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 98765 43210"
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                    Expected Travel Date
-                  </label>
-                  <input
-                    type="date"
-                    value={formData.travelDate}
-                    onChange={(e) => setFormData({ ...formData, travelDate: e.target.value })}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                    Destination / Route
-                  </label>
-                  <select
-                    value={formData.destination}
-                    onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
-                  >
-                    <option value="Ayodhya">Varanasi to Ayodhya</option>
-                    <option value="Prayagraj">Varanasi to Prayagraj</option>
-                    <option value="Vindhyachal">Varanasi to Vindhyachal</option>
-                    <option value="Vindhyachal & Prayagraj Combo">VNS – Vindhyachal – Prayagraj</option>
-                    <option value="Gaya & Bodh Gaya">Varanasi to Gaya & Bodh Gaya</option>
-                    <option value="3-Day Grand Pilgrimage Circuit">3-Day Prayagraj-Chitrakoot-Ayodhya</option>
-                    <option value="Custom Multi-City Itinerary">Custom Multi-City Circuit</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                    Passenger Count
-                  </label>
-                  <select
-                    value={formData.passengers}
-                    onChange={(e) => setFormData({ ...formData, passengers: e.target.value })}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
-                  >
-                    <option value="1-4">1 to 4 Passengers (Sedan)</option>
-                    <option value="5-7">5 to 7 Passengers (MUV / SUV)</option>
-                    <option value="8-16">8 to 16 Passengers (Force Urbania)</option>
-                    <option value="17-26">17 to 26 Passengers (Tempo Traveller)</option>
-                    <option value="27-35">27 to 35+ Passengers (Mini Bus)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                    Preferred Vehicle Type
-                  </label>
-                  <select
-                    value={formData.vehiclePreference}
-                    onChange={(e) => setFormData({ ...formData, vehiclePreference: e.target.value })}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors"
-                  >
-                    <option value="Swift Dzire (4S)">Swift Dzire (4 Seater Sedan)</option>
-                    <option value="Maruti Ertiga (6S)">Maruti Ertiga (6 Seater MUV)</option>
-                    <option value="Toyota Innova Crysta (7S)">Toyota Innova Crysta (Premium SUV)</option>
-                    <option value="Force Urbania (16S)">Force Urbania (16S Luxury Van)</option>
-                    <option value="Tempo Traveller 17S">Tempo Traveller (17 Seater)</option>
-                    <option value="Tempo Traveller 26S">Tempo Traveller (26 Seater)</option>
-                    <option value="35 Seater Mini Bus">35 Seater Tourist Mini Bus</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                  Trip Notes / Special Requests
-                </label>
-                <textarea
-                  rows={3}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Tell us about your pickup location (e.g. Hotel, Babatpur airport, Varanasi Cantt), elderly members, or custom stops..."
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors"
+              <div className="relative rounded-2xl overflow-hidden border border-amber-500/30 aspect-[512/307]">
+                <Image
+                  src="/images/business-card.png"
+                  alt="Utkarsh Travels Business Card"
+                  fill
+                  className="object-cover"
                 />
               </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto flex-1 flex items-center justify-center space-x-2 py-3.5 px-6 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm transition-colors shadow-lg shadow-amber-500/20"
-                >
-                  <Send className="w-4 h-4" />
-                  <span>Submit Inquiry</span>
-                </button>
+              {/* Verified Contact Details */}
+              <div className="pt-2 space-y-3 text-xs">
+                <div className="flex items-start space-x-3 text-slate-200">
+                  <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white block text-sm">{siteConfig.founder} — Utkarsh Travels</strong>
+                    <span className="text-slate-400">
+                      {siteConfig.address.street}, {siteConfig.address.locality}, UP - {siteConfig.address.postalCode}
+                    </span>
+                  </div>
+                </div>
 
-                <button
-                  type="button"
-                  onClick={directWhatsAppInquiry}
-                  className="w-full sm:w-auto flex items-center justify-center space-x-2 py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors shadow-md shadow-emerald-600/20"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Send via WhatsApp</span>
-                </button>
+                <div className="flex items-center space-x-3 text-slate-200">
+                  <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                  <div>
+                    <span className="text-slate-400 block text-[11px]">Primary Phone &amp; WhatsApp:</span>
+                    <a href={`tel:${siteConfig.phone}`} className="font-bold text-amber-400 text-sm hover:underline">
+                      {siteConfig.phoneDisplay}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3 text-slate-200">
+                  <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                  <div>
+                    <span className="text-slate-400 block text-[11px]">Inquiry Email:</span>
+                    <a href={`mailto:${siteConfig.email}`} className="text-amber-300 hover:underline">
+                      {siteConfig.email}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3 pt-2 border-t border-slate-800 text-slate-400">
+                  <Clock className="w-4 h-4 text-slate-400 shrink-0" />
+                  <span>{siteConfig.hours}</span>
+                </div>
               </div>
-            </form>
-          )}
+            </div>
+
+            {/* Embedded Google Map */}
+            <div className="bg-white border-2 border-slate-200 rounded-3xl overflow-hidden shadow-sm">
+              <div className="p-4 border-b border-slate-100 flex items-center justify-between">
+                <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                  Office Location — Mehmoorganj, Varanasi
+                </h3>
+              </div>
+              <div className="aspect-video w-full">
+                <iframe
+                  title="Utkarsh Travels Mehmoorganj Varanasi Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14429.083437559132!2d82.9739!3d25.3076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2de266ab0e55%3A0x673cecbce5a210ef!2sMahmoorganj%2C%20Varanasi%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1711800000000!5m2!1sen!2sin"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Inquiry Form */}
+          <div className="lg:col-span-7 bg-white border-2 border-slate-200 rounded-3xl p-6 sm:p-10 shadow-lg">
+            {submitted ? (
+              <div className="text-center py-10 space-y-5">
+                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto border-2 border-emerald-400">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <h2 className="text-2xl font-black text-[#0A1931] font-serif">Inquiry Dispatched Successfully!</h2>
+                <div className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed space-y-2">
+                  <p>
+                    Your requirements have been sent to <strong>Utkarsh Singh</strong>. A copy has been routed to <strong>{siteConfig.email}</strong>.
+                  </p>
+                  <p className="text-xs text-amber-700 font-semibold bg-amber-50 p-3 rounded-xl border border-amber-200">
+                    For priority response, your WhatsApp chat has been prepared with your booking ticket.
+                  </p>
+                </div>
+
+                <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+                  <button
+                    type="button"
+                    onClick={directWhatsAppInquiry}
+                    className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-extrabold text-sm shadow-lg shadow-amber-500/25 transition-all"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-slate-950 text-amber-500" />
+                    <span>Open WhatsApp Chat (+91 9648974238)</span>
+                  </button>
+
+                  {responseUrls.mailtoUrl && (
+                    <a
+                      href={responseUrls.mailtoUrl}
+                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-5 py-3.5 rounded-2xl bg-slate-800 text-white font-semibold text-xs transition-colors"
+                    >
+                      <Mail className="w-4 h-4 text-amber-400" />
+                      <span>Send via Email Client</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <h2 className="text-2xl font-black text-[#0A1931] font-serif">
+                    Request a Customized Pilgrimage Tour Quote
+                  </h2>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                    Fill in your tour preferences below. You will receive an instant quote from Utkarsh Singh.
+                  </p>
+                </div>
+
+                {/* Honeypot anti-spam trap */}
+                <input
+                  type="text"
+                  name="honeypot"
+                  value={formData.honeypot}
+                  onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      Your Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="e.g. Rajesh Kumar"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      Phone / WhatsApp Number *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="+91 98765 43210"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      Expected Travel Date
+                    </label>
+                    <input
+                      type="date"
+                      value={formData.travelDate}
+                      onChange={(e) => setFormData({ ...formData, travelDate: e.target.value })}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      Destination / Pilgrimage Route
+                    </label>
+                    <select
+                      value={formData.destination}
+                      onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                    >
+                      <option value="Varanasi to Ayodhya">Varanasi to Ayodhya (Ram Mandir)</option>
+                      <option value="Varanasi to Prayagraj">Varanasi to Prayagraj (Sangam)</option>
+                      <option value="Varanasi to Vindhyachal">Varanasi to Vindhyachal (Maa Vindhyavasini)</option>
+                      <option value="VNS – Vindhyachal – Prayagraj">VNS – Vindhyachal – Prayagraj Combo</option>
+                      <option value="Varanasi to Gaya & Bodh Gaya">Varanasi to Gaya & Bodh Gaya</option>
+                      <option value="3-Day Grand Pilgrimage Circuit">3-Day Prayagraj-Chitrakoot-Ayodhya</option>
+                      <option value="Custom Multi-City Package">Custom Multi-City Spiritual Package</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      Number of Passengers
+                    </label>
+                    <select
+                      value={formData.passengers}
+                      onChange={(e) => setFormData({ ...formData, passengers: e.target.value })}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                    >
+                      <option value="1-4 (Sedan)">1 to 4 Passengers (Sedan)</option>
+                      <option value="5-7 (MUV/SUV)">5 to 7 Passengers (Ertiga / Innova)</option>
+                      <option value="8-16 (Force Urbania)">8 to 16 Passengers (Force Urbania 16S)</option>
+                      <option value="17-26 (Tempo Traveller)">17 to 26 Passengers (Tempo Traveller)</option>
+                      <option value="27-35+ (Mini Bus)">27 to 35+ Passengers (Tourist Mini Bus)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                      Preferred Vehicle Model
+                    </label>
+                    <select
+                      value={formData.vehiclePreference}
+                      onChange={(e) => setFormData({ ...formData, vehiclePreference: e.target.value })}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                    >
+                      <option value="Swift Dzire (4S)">Swift Dzire (4S AC Sedan)</option>
+                      <option value="Maruti Ertiga (6S)">Maruti Ertiga (6S AC MUV)</option>
+                      <option value="Toyota Innova Crysta (7S)">Toyota Innova Crysta (Premium SUV)</option>
+                      <option value="Force Urbania (16S)">Force Urbania (16S Luxury Van)</option>
+                      <option value="Tempo Traveller 17S">Tempo Traveller (17 Seater)</option>
+                      <option value="Tempo Traveller 26S">Tempo Traveller (26 Seater)</option>
+                      <option value="35 Seater Mini Bus">35 Seater Tourist Mini Bus</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    Pickup Location in Varanasi
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.pickupLocation}
+                    onChange={(e) => setFormData({ ...formData, pickupLocation: e.target.value })}
+                    placeholder="e.g. Hotel in Godowlia, Varanasi Cantt, Babatpur Airport (VNS)"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    Special Requests / Trip Notes
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Senior citizens, wheelchair assistance, train/flight timings, or special darshan preferences..."
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl p-4 text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white transition-colors"
+                  />
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full sm:w-auto flex-1 flex items-center justify-center space-x-2 py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-black text-sm transition-all shadow-xl shadow-amber-500/25 disabled:opacity-50"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>{loading ? "Sending..." : "Submit Inquiry to Utkarsh Singh"}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={directWhatsAppInquiry}
+                    className="w-full sm:w-auto flex items-center justify-center space-x-2 py-4 px-6 rounded-2xl bg-[#0A1931] hover:bg-[#071326] text-white font-bold text-xs transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4 text-amber-400" />
+                    <span>Direct WhatsApp</span>
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </div>
