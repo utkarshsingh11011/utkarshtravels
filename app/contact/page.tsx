@@ -17,7 +17,7 @@ export default function ContactPage() {
     destination: "Varanasi to Ayodhya",
     passengers: "1-4 (Sedan)",
     vehiclePreference: "Swift Dzire (4S)",
-    pickupLocation: "Hotel / Varanasi Cantt",
+    pickupLocation: "",
     message: "",
     honeypot: "",
   });
@@ -56,7 +56,7 @@ export default function ContactPage() {
   };
 
   const directWhatsAppInquiry = () => {
-    const text = `*NEW TOUR INQUIRY - UTKARSH TRAVELS*\n\n*Name:* ${formData.name || "Traveler"}\n*Phone:* ${formData.phone || "Not provided"}\n*Travel Date:* ${formData.travelDate || "Flexible"}\n*Destination:* ${formData.destination}\n*Group Size:* ${formData.passengers}\n*Vehicle:* ${formData.vehiclePreference}\n*Pickup:* ${formData.pickupLocation}\n*Notes:* ${formData.message || "None"}\n\nPlease share availability and quote.`;
+    const text = `*NEW TOUR INQUIRY - UTKARSH TRAVELS*\n\n*Name:* ${formData.name || "Traveler"}\n*Phone:* ${formData.phone || "Not provided"}\n*Travel Date:* ${formData.travelDate || "Flexible"}\n*Destination:* ${formData.destination}\n*Group Size:* ${formData.passengers}\n*Vehicle:* ${formData.vehiclePreference}\n*Pickup:* ${formData.pickupLocation || "To be specified"}\n*Notes:* ${formData.message || "None"}\n\nPlease share availability and quote.`;
     window.open(`https://wa.me/919648974238?text=${encodeURIComponent(text)}`, "_blank");
   };
 
