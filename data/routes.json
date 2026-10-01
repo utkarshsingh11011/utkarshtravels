@@ -512,5 +512,94 @@
       "varanasi-to-prayagraj-taxi-service",
       "varanasi-vindhyachal-prayagraj-taxi"
     ]
+  },
+  {
+    "slug": "dev-deepawali-varanasi-tour-packages",
+    "name": "Dev Deepawali Varanasi 2026 Tour Packages",
+    "origin": "Varanasi",
+    "destination": "Varanasi Ghats & Kashi Vishwanath",
+    "image": "/images/destinations/dev-deepawali.jpg",
+    "packageType": "Kartik Purnima Festival",
+    "distance": "Local & Airport / Station Transfers",
+    "duration": "Full Day & Night Celebration",
+    "summary": "Experience the divine magic of Dev Deepawali in Varanasi on 24th November 2026. Complete packages featuring premium AC cabs, confirmed boat rides, and comfortable hotel stays along the lit Ganga Ghats.",
+    "pricing": {
+      "dzire": 4500,
+      "ertiga": 6000,
+      "innovaCrysta": 7500,
+      "maharaja15": 14000,
+      "urbania16": 16000,
+      "tempoTraveller17": 12000,
+      "tempoTraveller20": 14000,
+      "tempoTraveller26": 17000,
+      "miniBus35": 25000,
+      "coach49": 30000
+    },
+    "highlights": [
+      "Over 1 Million Earthen Lamps (Diyas) illuminating all 84 Varanasi Ghats",
+      "Confirmed Boat Ride (Private Row Boat, Motorboat, or Luxury Bajra)",
+      "Grand Ganga Maha Aarti at Dashashwamedh & Rajendra Prasad Ghats",
+      "Laser & 3D Projection Mapping Show narrating Kashi history at Chet Singh Ghat",
+      "Illuminated Kashi Vishwanath Corridor & Temple Darshan",
+      "Verified Hotel Stay & Dedicated AC Cab Pickups"
+    ],
+    "itinerary": [
+      {
+        "time": "03:00 PM - 04:00 PM",
+        "title": "Ghat Arrival & Boarding Pre-Booked Boat",
+        "description": "Beat traffic restrictions with early pickup and arrival at the ghats to board your pre-booked boat before crowds swell."
+      },
+      {
+        "time": "05:15 PM - 06:00 PM",
+        "title": "Diya Lighting Along 84 Ghats",
+        "description": "Witness the magical moment when priests and volunteers begin lighting millions of diyas along the steps from Ravidas to Rajghat."
+      },
+      {
+        "time": "06:30 PM Onwards",
+        "title": "Grand Ganga Maha Aarti & Floating Diyas",
+        "description": "Experience the spectacular, specially choreographed Maha Aarti from your boat on the Ganges, and float your own diya for divine blessings."
+      },
+      {
+        "time": "08:00 PM",
+        "title": "Laser Show & Kashi Vishwanath Corridor",
+        "description": "Watch the 3D laser projection show at Chet Singh Ghat and visit the beautifully lit Kashi Vishwanath Temple corridor."
+      }
+    ],
+    "seo": {
+      "title": "Dev Deepawali Varanasi 2026 Tour Packages | Utkarsh Travels",
+      "description": "Experience the magic of Dev Deepawali in Varanasi on 24th November. Book exclusive tour packages with boat rides, cab rentals, and hotels. Limited slots—Book Now!",
+      "keywords": [
+        "Dev Deepawali Varanasi",
+        "Dev Deepawali 2026",
+        "Varanasi tour packages",
+        "Dev Deepawali boat ride",
+        "Varanasi cab rental",
+        "Kashi Dev Deepawali",
+        "Ghats of Varanasi"
+      ]
+    },
+    "faq": [
+      {
+        "question": "When is Dev Deepawali 2026 celebrated in Varanasi?",
+        "answer": "Dev Deepawali 2026 falls on 24th November (Kartik Purnima), exactly 15 days after Diwali."
+      },
+      {
+        "question": "Are boat rides guaranteed during Dev Deepawali peak rush?",
+        "answer": "Yes! Utkarsh Travels provides pre-confirmed boat bookings (Private Row Boats, Motorboats, and traditional luxury Bajras) so you bypass local surge prices."
+      },
+      {
+        "question": "What is included in the Utkarsh Travels Dev Deepawali package?",
+        "answer": "Our comprehensive packages feature airport/station pickup & drop AC cabs, verified hotel accommodation options, and confirmed boat rides for viewing the illuminated ghats."
+      },
+      {
+        "question": "Why should I book Dev Deepawali packages months in advance?",
+        "answer": "Dev Deepawali is the busiest day of the year in Varanasi. Hotels reach 100% occupancy, boat rates surge exponentially, and transport becomes scarce. Early booking locks in fixed pricing."
+      }
+    ],
+    "relatedSlugs": [
+      "varanasi-to-ayodhya-taxi-service",
+      "varanasi-to-prayagraj-taxi-service",
+      "varanasi-to-vindhyachal-taxi-service"
+    ]
   }
 ]

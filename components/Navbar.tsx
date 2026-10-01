@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Phone, MessageCircle, Menu, X, MapPin, Mail, ChevronDown, Sparkles } from "lucide-react";
+import { Phone, MessageCircle, Menu, X, MapPin, Mail, ChevronDown, Sparkles, Flame } from "lucide-react";
 import siteConfig from "@/data/site.json";
 import routesData from "@/data/routes.json";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
@@ -69,6 +69,15 @@ export default function Navbar() {
                 className="px-3.5 py-2 rounded-xl text-sm font-bold text-slate-800 hover:text-amber-700 hover:bg-amber-50/70 transition-all"
               >
                 Home
+              </Link>
+
+              {/* Special Dev Deepawali Highlight Link */}
+              <Link
+                href="/dev-deepawali-varanasi-tour-packages"
+                className="px-3 py-1.5 rounded-xl text-xs font-black bg-amber-100 border border-amber-400/80 text-amber-900 hover:bg-amber-500 hover:text-slate-950 transition-all flex items-center space-x-1.5 shadow-sm"
+              >
+                <Flame className="w-3.5 h-3.5 text-amber-600 fill-amber-500" />
+                <span>Dev Deepawali 2026</span>
               </Link>
 
               {/* Routes Dropdown */}
@@ -193,6 +202,15 @@ export default function Navbar() {
             className="block py-2 text-base font-bold text-slate-900 hover:text-amber-700"
           >
             Home
+          </Link>
+
+          <Link
+            href="/dev-deepawali-varanasi-tour-packages"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center space-x-2 py-2.5 px-3 rounded-xl bg-amber-100 border border-amber-400 text-amber-950 font-black text-sm"
+          >
+            <Flame className="w-4 h-4 text-amber-600 fill-amber-500" />
+            <span>Dev Deepawali 2026 Packages</span>
           </Link>
 
           <div className="text-xs font-extrabold text-amber-800 uppercase tracking-widest pt-1">
