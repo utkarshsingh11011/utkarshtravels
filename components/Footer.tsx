@@ -97,19 +97,22 @@ export default function Footer() {
               Pilgrimage Tour Circuits
             </h3>
             <ul className="space-y-2 text-xs">
-              {routesData.map((route) => (
-                <li key={route.slug}>
-                  <Link
-                    href={`/${route.slug}`}
-                    className="text-slate-700 hover:text-amber-800 transition-colors flex items-center justify-between group"
-                  >
-                    <span className="group-hover:translate-x-0.5 transition-transform">{route.name}</span>
-                    <span className="font-mono text-amber-800 text-[11px] font-semibold">
-                      ₹{route.pricing.dzire.toLocaleString("en-IN")}
-                    </span>
-                  </Link>
-                </li>
-              ))}
+              {routesData.map((route) => {
+                const isCustom = route.slug === "dev-deepawali-varanasi-tour-packages";
+                return (
+                  <li key={route.slug}>
+                    <Link
+                      href={`/${route.slug}`}
+                      className="text-slate-700 hover:text-amber-800 transition-colors flex items-center justify-between group"
+                    >
+                      <span className="group-hover:translate-x-0.5 transition-transform">{route.name}</span>
+                      <span className="font-mono text-amber-800 text-[11px] font-semibold">
+                        {isCustom ? "On Request" : `₹${route.pricing.dzire.toLocaleString("en-IN")}`}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

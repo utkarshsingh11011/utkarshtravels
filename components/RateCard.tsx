@@ -6,10 +6,12 @@ import siteConfig from "@/data/site.json";
 
 interface RateCardProps {
   route: RouteItem;
+  hidePricing?: boolean;
 }
 
-export default function RateCard({ route }: RateCardProps) {
+export default function RateCard({ route, hidePricing }: RateCardProps) {
   const vehicles = getAllVehicles();
+  const isCustomQuote = hidePricing || route.slug === "dev-deepawali-varanasi-tour-packages";
 
   return (
     <div className="bg-white border-2 border-amber-400/60 rounded-3xl overflow-hidden shadow-xl" id="rates">
@@ -30,12 +32,14 @@ export default function RateCard({ route }: RateCardProps) {
           </div>
           <div className="text-left md:text-right bg-white p-4 rounded-2xl border border-amber-400/40 shadow-sm">
             <span className="text-[11px] text-slate-600 uppercase tracking-widest block font-semibold">
-              Starting From
+              {isCustomQuote ? "Festival Tariff" : "Starting From"}
             </span>
-            <span className="text-3xl sm:text-4xl font-black text-amber-700 font-mono">
-              {formatINR(route.pricing.dzire)}
+            <span className={isCustomQuote ? "text-2xl sm:text-3xl font-black text-amber-800 font-sans block" : "text-3xl sm:text-4xl font-black text-amber-700 font-mono"}>
+              {isCustomQuote ? "On Request" : formatINR(route.pricing.dzire)}
             </span>
-            <span className="text-[11px] text-slate-600 block mt-0.5">AC Sedan (Dzire)</span>
+            <span className="text-[11px] text-slate-600 block mt-0.5">
+              {isCustomQuote ? "Chat on WhatsApp for Live Quote" : "AC Sedan (Dzire)"}
+            </span>
           </div>
         </div>
       </div>
@@ -49,7 +53,7 @@ export default function RateCard({ route }: RateCardProps) {
               <th className="py-4 px-4">Category</th>
               <th className="py-4 px-4">Seating</th>
               <th className="py-4 px-4">Luggage</th>
-              <th className="py-4 px-6 text-right">Fixed Tariff</th>
+              <th className="py-4 px-6 text-right">{isCustomQuote ? "Tariff / Quote" : "Fixed Tariff"}</th>
               <th className="py-4 px-6 text-center">Instant Booking</th>
             </tr>
           </thead>
@@ -63,7 +67,10 @@ export default function RateCard({ route }: RateCardProps) {
                 routeName: route.name,
                 packageType: route.packageType,
                 vehicleName: vehicle.name,
-                price: fare,
+                price: isCustomQuote ? undefined : fare,
+                customMessage: isCustomQuote
+                  ? `Hello Utkarsh Singh, please share live rate and availability for ${vehicle.name} for Dev Deepawali 2026.`
+                  : undefined,
               });
 
               const isPopular = vehicle.id === "dzire" || vehicle.id === "innovaCrysta";
@@ -118,10 +125,21 @@ export default function RateCard({ route }: RateCardProps) {
                     </span>
                   </td>
                   <td className="py-4 px-6 text-right">
-                    <span className="text-2xl font-black text-amber-700 font-mono">
-                      {formatINR(fare)}
-                    </span>
-                    <span className="block text-[11px] text-slate-500">All-Inclusive Fuel</span>
+                    {isCustomQuote ? (
+                      <div>
+                        <span className="px-3 py-1.5 rounded-xl bg-amber-100 text-amber-900 font-extrabold text-xs sm:text-sm border border-amber-300 inline-block shadow-sm">
+                          On Request
+                        </span>
+                        <span className="block text-[11px] text-slate-500 mt-1">Live Custom Quote</span>
+                      </div>
+                    ) : (
+                      <div>
+                        <span className="text-2xl font-black text-amber-700 font-mono">
+                          {formatINR(fare)}
+                        </span>
+                        <span className="block text-[11px] text-slate-500">All-Inclusive Fuel</span>
+                      </div>
+                    )}
                   </td>
                   <td className="py-4 px-6 text-center">
                     <a
@@ -131,7 +149,7 @@ export default function RateCard({ route }: RateCardProps) {
                       className="inline-flex items-center space-x-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold text-xs shadow-md shadow-emerald-600/20 transition-all hover:scale-105"
                     >
                       <MessageCircle className="w-3.5 h-3.5 fill-white text-emerald-600" />
-                      <span>Book on WhatsApp</span>
+                      <span>{isCustomQuote ? "Chat for Rate" : "Book on WhatsApp"}</span>
                     </a>
                   </td>
                 </tr>
@@ -152,7 +170,10 @@ export default function RateCard({ route }: RateCardProps) {
             routeName: route.name,
             packageType: route.packageType,
             vehicleName: vehicle.name,
-            price: fare,
+            price: isCustomQuote ? undefined : fare,
+            customMessage: isCustomQuote
+              ? `Hello Utkarsh Singh, please share live rate and availability for ${vehicle.name} for Dev Deepawali 2026.`
+              : undefined,
           });
 
           const isPopular = vehicle.id === "dzire" || vehicle.id === "innovaCrysta";
@@ -194,10 +215,21 @@ export default function RateCard({ route }: RateCardProps) {
                 </div>
 
                 <div className="text-right shrink-0">
-                  <span className="text-xl font-black text-amber-700 font-mono">
-                    {formatINR(fare)}
-                  </span>
-                  <span className="block text-[10px] text-slate-500">Total Route Fare</span>
+                  {isCustomQuote ? (
+                    <div>
+                      <span className="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-extrabold text-xs border border-amber-300 inline-block shadow-sm">
+                        On Request
+                      </span>
+                      <span className="block text-[10px] text-slate-500 mt-0.5">Custom Quote</span>
+                    </div>
+                  ) : (
+                    <div>
+                      <span className="text-xl font-black text-amber-700 font-mono">
+                        {formatINR(fare)}
+                      </span>
+                      <span className="block text-[10px] text-slate-500">Total Route Fare</span>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -220,7 +252,9 @@ export default function RateCard({ route }: RateCardProps) {
                   className="w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold text-xs shadow-md shadow-emerald-600/20"
                 >
                   <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
-                  <span>Book {vehicle.shortName} on WhatsApp</span>
+                  <span>
+                    {isCustomQuote ? `Chat for ${vehicle.shortName} Rate` : `Book ${vehicle.shortName} on WhatsApp`}
+                  </span>
                 </a>
               </div>
             </div>

@@ -324,61 +324,68 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {routes.map((route) => (
-            <div
-              key={route.slug}
-              className="bg-white border-2 border-slate-200 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
-                  <span className="font-semibold text-amber-700 uppercase tracking-wider">{route.packageType}</span>
-                  <span>{route.duration}</span>
+          {routes.map((route) => {
+            const isCustom = route.slug === "dev-deepawali-varanasi-tour-packages";
+
+            return (
+              <div
+                key={route.slug}
+                className="bg-white border-2 border-slate-200 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
+                    <span className="font-semibold text-amber-700 uppercase tracking-wider">{route.packageType}</span>
+                    <span>{route.duration}</span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-[#0F172A] font-serif">{route.name}</h3>
+                  <p className="text-xs text-slate-600 mt-2 line-clamp-2">{route.summary}</p>
+
+                  {/* Price Highlights */}
+                  <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
+                    <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
+                      <span className="text-slate-500 block text-[11px]">Sedan (Dzire)</span>
+                      <span className={`text-base font-bold ${isCustom ? "text-amber-800 text-xs uppercase" : "text-amber-700 font-mono"}`}>
+                        {isCustom ? "On Request" : formatINR(route.pricing.dzire)}
+                      </span>
+                    </div>
+                    <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
+                      <span className="text-slate-500 block text-[11px]">Innova Crysta</span>
+                      <span className={`text-base font-bold ${isCustom ? "text-amber-800 text-xs uppercase" : "text-slate-900 font-mono"}`}>
+                        {isCustom ? "On Request" : formatINR(route.pricing.innovaCrysta)}
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-[#0F172A] font-serif">{route.name}</h3>
-                <p className="text-xs text-slate-600 mt-2 line-clamp-2">{route.summary}</p>
-
-                {/* Price Highlights */}
-                <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
-                  <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
-                    <span className="text-slate-500 block text-[11px]">Sedan (Dzire)</span>
-                    <span className="text-base font-bold text-amber-700 font-mono">
-                      {formatINR(route.pricing.dzire)}
-                    </span>
-                  </div>
-                  <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
-                    <span className="text-slate-500 block text-[11px]">Innova Crysta</span>
-                    <span className="text-base font-bold text-slate-900 font-mono">
-                      {formatINR(route.pricing.innovaCrysta)}
-                    </span>
-                  </div>
+                <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                  <Link
+                    href={`/${route.slug}`}
+                    className="flex-1 flex items-center justify-center space-x-1.5 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-semibold text-xs transition-colors"
+                  >
+                    <span>{isCustom ? "Chat for Quote" : "Detailed Rate Card"}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                  <a
+                    href={getWhatsAppUrl({
+                      slug: route.slug,
+                      routeName: route.name,
+                      packageType: route.packageType,
+                      customMessage: isCustom
+                        ? "Hello Utkarsh Singh, please share rates and availability for Dev Deepawali 2026."
+                        : undefined,
+                    })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center p-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-colors shadow-sm"
+                    aria-label="Book on WhatsApp"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
+                  </a>
                 </div>
               </div>
-
-              <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
-                <Link
-                  href={`/${route.slug}`}
-                  className="flex-1 flex items-center justify-center space-x-1.5 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-semibold text-xs transition-colors"
-                >
-                  <span>Detailed Rate Card</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-                <a
-                  href={getWhatsAppUrl({
-                    slug: route.slug,
-                    routeName: route.name,
-                    packageType: route.packageType,
-                  })}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center p-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-colors shadow-sm"
-                  aria-label="Book on WhatsApp"
-                >
-                  <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
-                </a>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
