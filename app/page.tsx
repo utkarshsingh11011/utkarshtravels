@@ -244,83 +244,162 @@ export default function HomePage() {
       {/* Fleet Showcase with Real Vehicle Images & Business Card Lineup */}
       <FleetShowcase />
 
-      {/* Authoritative Rate Matrix Section */}
-      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 🛕 Pilgrim & Heritage Tour Packages */}
+      <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="tour-packages">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-amber-100 border border-amber-400/60 text-amber-900">
-            Transparent Pricing Guarantee
+          <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-amber-100 border border-amber-400/60 text-amber-900 inline-flex items-center space-x-1.5">
+            <Compass className="w-3.5 h-3.5 text-amber-700" />
+            <span>Spiritual Pilgrimage Packages</span>
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight mt-3 font-serif">
-            Popular Tour Rate Cards
+            Pilgrim &amp; Heritage Tour Packages
           </h2>
           <p className="text-slate-600 mt-3 text-base">
-            Clear, all-inclusive fuel tariffs from Varanasi. No hidden booking charges.
+            Complete round-trip, same-day darshan, and multi-day spiritual tour packages from Varanasi.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {routes.map((route) => {
-            const isCustom = route.slug === "dev-deepawali-varanasi-tour-packages";
+          {routes
+            .filter((r) => !r.isOneWay)
+            .map((route) => {
+              const isCustom = route.slug === "dev-deepawali-varanasi-tour-packages";
 
-            return (
+              return (
+                <div
+                  key={route.slug}
+                  className="bg-white border-2 border-slate-200 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
+                      <span className="font-semibold text-amber-700 uppercase tracking-wider">{route.packageType}</span>
+                      <span>{route.duration}</span>
+                    </div>
+
+                    <h3 className="text-lg font-bold text-[#0F172A] font-serif">{route.name}</h3>
+                    <p className="text-xs text-slate-600 mt-2 line-clamp-2">{route.summary}</p>
+
+                    {/* Price Highlights */}
+                    <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
+                      <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
+                        <span className="text-slate-500 block text-[11px]">Sedan (Dzire)</span>
+                        <span className={`text-base font-bold ${isCustom ? "text-amber-800 text-xs uppercase" : "text-amber-700 font-mono"}`}>
+                          {isCustom ? "On Request" : formatINR(route.pricing.dzire)}
+                        </span>
+                      </div>
+                      <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
+                        <span className="text-slate-500 block text-[11px]">Innova Crysta</span>
+                        <span className={`text-base font-bold ${isCustom ? "text-amber-800 text-xs uppercase" : "text-slate-900 font-mono"}`}>
+                          {isCustom ? "On Request" : formatINR(route.pricing.innovaCrysta)}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                    <Link
+                      href={`/${route.slug}`}
+                      className="flex-1 flex items-center justify-center space-x-1.5 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-semibold text-xs transition-colors"
+                    >
+                      <span>{isCustom ? "Chat for Quote" : "Detailed Rate Card"}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                    <a
+                      href={getWhatsAppUrl({
+                        slug: route.slug,
+                        routeName: route.name,
+                        packageType: route.packageType,
+                        customMessage: isCustom
+                          ? "Hello Utkarsh Singh, please share rates and availability for Dev Deepawali 2026."
+                          : undefined,
+                      })}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center p-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-colors shadow-sm"
+                      aria-label="Book on WhatsApp"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+        </div>
+      </section>
+
+      {/* 𚅮 One-Way Intercity Cab Drops */}
+      <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t-2 border-slate-200/60" id="oneway">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <span className="text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 inline-flex items-center space-x-1.5">
+            <Car className="w-3.5 h-3.5 text-emerald-700" />
+            <span>Door-to-Door Intercity Drops</span>
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight mt-3 font-serif">
+            One-Way Intercity Cab Drops
+          </h2>
+          <p className="text-slate-600 mt-3 text-base">
+            Fixed, affordable one-way taxi drops between Varanasi, Prayagraj, Ayodhya, Gaya, and Lucknow.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {routes
+            .filter((r) => r.isOneWay)
+            .map((route) => (
               <div
                 key={route.slug}
-                className="bg-white border-2 border-slate-200 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all flex flex-col justify-between"
+                className="bg-white border-2 border-slate-200 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:border-emerald-500 transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
-                    <span className="font-semibold text-amber-700 uppercase tracking-wider">{route.packageType}</span>
+                    <span className="font-semibold text-emerald-800 uppercase tracking-wider">{route.packageType}</span>
                     <span>{route.duration}</span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#0F172A] font-serif">{route.name}</h3>
-                  <p className="text-xs text-slate-600 mt-2 line-clamp-2">{route.summary}</p>
+                  <h3 className="text-base font-bold text-[#0F172A] font-serif">{route.name}</h3>
+                  <p className="text-xs text-slate-600 mt-1.5 line-clamp-2">{route.summary}</p>
 
                   {/* Price Highlights */}
-                  <div className="mt-5 grid grid-cols-2 gap-3 text-xs">
-                    <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
-                      <span className="text-slate-500 block text-[11px]">Sedan (Dzire)</span>
-                      <span className={`text-base font-bold ${isCustom ? "text-amber-800 text-xs uppercase" : "text-amber-700 font-mono"}`}>
-                        {isCustom ? "On Request" : formatINR(route.pricing.dzire)}
+                  <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
+                    <div className="bg-emerald-50/60 p-2.5 rounded-xl border border-emerald-200">
+                      <span className="text-slate-500 block text-[10px]">Sedan (Dzire)</span>
+                      <span className="text-sm font-black text-emerald-800 font-mono">
+                        {formatINR(route.pricing.dzire)}
                       </span>
                     </div>
-                    <div className="bg-slate-50 p-3 rounded-2xl border border-slate-200">
-                      <span className="text-slate-500 block text-[11px]">Innova Crysta</span>
-                      <span className={`text-base font-bold ${isCustom ? "text-amber-800 text-xs uppercase" : "text-slate-900 font-mono"}`}>
-                        {isCustom ? "On Request" : formatINR(route.pricing.innovaCrysta)}
+                    <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                      <span className="text-slate-500 block text-[10px]">Innova Crysta</span>
+                      <span className="text-sm font-bold text-slate-900 font-mono">
+                        {formatINR(route.pricing.innovaCrysta)}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
                   <Link
                     href={`/${route.slug}`}
-                    className="flex-1 flex items-center justify-center space-x-1.5 py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-semibold text-xs transition-colors"
+                    className="flex-1 flex items-center justify-center space-x-1 py-2 px-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-900 font-semibold text-xs transition-colors"
                   >
-                    <span>{isCustom ? "Chat for Quote" : "Detailed Rate Card"}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>One-Way Tariff</span>
+                    <ArrowRight className="w-3 h-3" />
                   </Link>
                   <a
                     href={getWhatsAppUrl({
                       slug: route.slug,
                       routeName: route.name,
                       packageType: route.packageType,
-                      customMessage: isCustom
-                        ? "Hello Utkarsh Singh, please share rates and availability for Dev Deepawali 2026."
-                        : undefined,
                     })}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center p-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-colors shadow-sm"
+                    className="flex items-center justify-center p-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-colors shadow-sm"
                     aria-label="Book on WhatsApp"
                   >
                     <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
                   </a>
                 </div>
               </div>
-            );
-          })}
+            ))}
         </div>
       </section>
 

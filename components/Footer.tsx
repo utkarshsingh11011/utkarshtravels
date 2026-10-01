@@ -91,28 +91,54 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Pilgrimage Circuits Internal SEO Links */}
+          {/* Pilgrim Tour Packages Column */}
           <div className="lg:col-span-3 space-y-3">
             <h3 className="text-xs font-bold text-amber-900 uppercase tracking-widest border-b border-slate-300 pb-2">
-              Pilgrimage Tour Circuits
+              Pilgrim Tour Packages
             </h3>
             <ul className="space-y-2 text-xs">
-              {routesData.map((route) => {
-                const isCustom = route.slug === "dev-deepawali-varanasi-tour-packages";
-                return (
+              {routesData
+                .filter((r) => !r.isOneWay)
+                .map((route) => {
+                  const isCustom = route.slug === "dev-deepawali-varanasi-tour-packages";
+                  return (
+                    <li key={route.slug}>
+                      <Link
+                        href={`/${route.slug}`}
+                        className="text-slate-700 hover:text-amber-800 transition-colors flex items-center justify-between group"
+                      >
+                        <span className="group-hover:translate-x-0.5 transition-transform truncate pr-1">{route.name}</span>
+                        <span className="font-mono text-amber-800 text-[11px] font-semibold shrink-0">
+                          {isCustom ? "On Request" : `₹${route.pricing.dzire.toLocaleString("en-IN")}`}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+            </ul>
+          </div>
+
+          {/* One-Way Cab Drops Column */}
+          <div className="lg:col-span-3 space-y-3">
+            <h3 className="text-xs font-bold text-amber-900 uppercase tracking-widest border-b border-slate-300 pb-2">
+              One-Way Cab Drops
+            </h3>
+            <ul className="space-y-2 text-xs">
+              {routesData
+                .filter((r) => r.isOneWay)
+                .map((route) => (
                   <li key={route.slug}>
                     <Link
                       href={`/${route.slug}`}
                       className="text-slate-700 hover:text-amber-800 transition-colors flex items-center justify-between group"
                     >
-                      <span className="group-hover:translate-x-0.5 transition-transform">{route.name}</span>
-                      <span className="font-mono text-amber-800 text-[11px] font-semibold">
-                        {isCustom ? "On Request" : `₹${route.pricing.dzire.toLocaleString("en-IN")}`}
+                      <span className="group-hover:translate-x-0.5 transition-transform truncate pr-1">{route.name}</span>
+                      <span className="font-mono text-amber-800 text-[11px] font-semibold shrink-0">
+                        ₹{route.pricing.dzire.toLocaleString("en-IN")}
                       </span>
                     </Link>
                   </li>
-                );
-              })}
+                ))}
             </ul>
           </div>
 
