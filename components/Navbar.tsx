@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Phone, MessageCircle, Menu, X, MapPin, Mail, ChevronDown, Sparkles, Flame } from "lucide-react";
+import { Phone, MessageCircle, Menu, X, MapPin, Mail, ChevronDown, Sparkles, Flame, Compass, Navigation } from "lucide-react";
 import siteConfig from "@/data/site.json";
 import routesData from "@/data/routes.json";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
@@ -10,7 +10,11 @@ import Logo from "@/components/Logo";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [routesDropdownOpen, setRoutesDropdownOpen] = useState(false);
+  const [toursDropdownOpen, setToursDropdownOpen] = useState(false);
+  const [oneWayDropdownOpen, setOneWayDropdownOpen] = useState(false);
+
+  const tourPackages = routesData.filter((r) => !r.isOneWay);
+  const oneWayCabs = routesData.filter((r) => r.isOneWay);
 
   return (
     <header className="sticky top-0 z-50 shadow-md">
@@ -66,79 +70,146 @@ export default function Navbar() {
             <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
               <Link
                 href="/"
-                className="px-3.5 py-2 rounded-xl text-sm font-bold text-slate-800 hover:text-amber-700 hover:bg-amber-50/70 transition-all"
+                className="px-3 py-2 rounded-xl text-sm font-bold text-slate-800 hover:text-amber-700 hover:bg-amber-50/70 transition-all"
               >
                 Home
               </Link>
 
-              {/* Special Dev Deepawali Highlight Link */}
+              {/* Dev Deepawali Highlight Link */}
               <Link
                 href="/dev-deepawali-varanasi-tour-packages"
-                className="px-3 py-1.5 rounded-xl text-xs font-black bg-amber-100 border border-amber-400/80 text-amber-900 hover:bg-amber-500 hover:text-slate-950 transition-all flex items-center space-x-1.5 shadow-sm"
+                className="px-2.5 py-1.5 rounded-xl text-xs font-black bg-amber-100 border border-amber-400/80 text-amber-900 hover:bg-amber-500 hover:text-slate-950 transition-all flex items-center space-x-1 shadow-sm"
               >
                 <Flame className="w-3.5 h-3.5 text-amber-600 fill-amber-500" />
-                <span>Dev Deepawali 2026</span>
+                <span>Dev Deepawali</span>
               </Link>
 
-              {/* Routes Dropdown */}
+              {/* 1. Tour Packages Dropdown */}
               <div
                 className="relative"
-                onMouseEnter={() => setRoutesDropdownOpen(true)}
-                onMouseLeave={() => setRoutesDropdownOpen(false)}
+                onMouseEnter={() => setToursDropdownOpen(true)}
+                onMouseLeave={() => setToursDropdownOpen(false)}
               >
                 <button
                   type="button"
-                  onClick={() => setRoutesDropdownOpen(!routesDropdownOpen)}
-                  className="px-3.5 py-2 rounded-xl text-sm font-bold text-slate-800 hover:text-amber-700 hover:bg-amber-50/70 transition-all flex items-center space-x-1"
-                  aria-expanded={routesDropdownOpen}
+                  onClick={() => setToursDropdownOpen(!toursDropdownOpen)}
+                  className="px-3 py-2 rounded-xl text-sm font-bold text-slate-800 hover:text-amber-700 hover:bg-amber-50/70 transition-all flex items-center space-x-1"
+                  aria-expanded={toursDropdownOpen}
                 >
-                  <span>Pilgrimage Routes</span>
+                  <Compass className="w-4 h-4 text-amber-600" />
+                  <span>Tour Packages</span>
                   <ChevronDown className="w-4 h-4 text-amber-600" />
                 </button>
 
-                {routesDropdownOpen && (
-                  <div className="absolute left-0 mt-1 w-88 rounded-2xl bg-white border-2 border-amber-400/80 shadow-2xl py-3 z-50">
+                {toursDropdownOpen && (
+                  <div className="absolute left-0 mt-1 w-96 rounded-2xl bg-white border-2 border-amber-400/80 shadow-2xl py-3 z-50">
                     <div className="px-4 pb-2 mb-2 text-xs font-extrabold text-amber-800 uppercase tracking-widest border-b border-slate-200 flex items-center justify-between">
-                      <span>Sacred Destination Circuits</span>
-                      <span className="text-[10px] text-slate-500 font-semibold">Fixed Fares</span>
+                      <span className="flex items-center space-x-1">
+                        <span>🛕 Pilgrim &amp; Local Tour Packages</span>
+                      </span>
+                      <span className="text-[10px] text-amber-700 font-semibold bg-amber-50 px-2 py-0.5 rounded">Round Trips</span>
                     </div>
-                    {routesData.map((route) => (
+                    <div className="max-h-[70vh] overflow-y-auto">
+                      {tourPackages.map((route) => (
+                        <Link
+                          key={route.slug}
+                          href={`/${route.slug}`}
+                          onClick={() => setToursDropdownOpen(false)}
+                          className="block px-4 py-2.5 text-sm text-slate-800 hover:bg-amber-50/80 hover:text-amber-900 transition-colors border-b border-slate-100 last:border-0"
+                        >
+                          <div className="font-bold text-slate-900 flex items-center justify-between">
+                            <span className="truncate pr-2">{route.name}</span>
+                          </div>
+                          <div className="text-xs text-slate-500 flex items-center justify-between mt-0.5">
+                            <span className="truncate max-w-[180px]">{route.packageType}</span>
+                            <span className="text-amber-700 font-extrabold font-mono shrink-0">
+                              From ₹{route.pricing.dzire.toLocaleString("en-IN")}
+                            </span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="pt-2 mt-1 border-t border-slate-200 px-4 text-center">
                       <Link
-                        key={route.slug}
-                        href={`/${route.slug}`}
-                        onClick={() => setRoutesDropdownOpen(false)}
-                        className="block px-4 py-2.5 text-sm text-slate-800 hover:bg-amber-50/80 hover:text-amber-900 transition-colors"
+                        href="/#tour-packages"
+                        onClick={() => setToursDropdownOpen(false)}
+                        className="text-xs font-black text-amber-800 hover:text-amber-950 uppercase tracking-wider block py-1"
                       >
-                        <div className="font-bold text-slate-900">{route.name}</div>
-                        <div className="text-xs text-slate-500 flex items-center justify-between mt-0.5">
-                          <span>{route.packageType}</span>
-                          <span className="text-amber-700 font-extrabold font-mono">
-                            From ₹{route.pricing.dzire.toLocaleString("en-IN")}
-                          </span>
-                        </div>
+                        View All Tour Packages &rarr;
                       </Link>
-                    ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* 2. One-Way Cabs Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setOneWayDropdownOpen(true)}
+                onMouseLeave={() => setOneWayDropdownOpen(false)}
+              >
+                <button
+                  type="button"
+                  onClick={() => setOneWayDropdownOpen(!oneWayDropdownOpen)}
+                  className="px-3 py-2 rounded-xl text-sm font-bold text-slate-800 hover:text-amber-700 hover:bg-amber-50/70 transition-all flex items-center space-x-1"
+                  aria-expanded={oneWayDropdownOpen}
+                >
+                  <Navigation className="w-4 h-4 text-emerald-600" />
+                  <span>One-Way Cabs</span>
+                  <ChevronDown className="w-4 h-4 text-emerald-600" />
+                </button>
+
+                {oneWayDropdownOpen && (
+                  <div className="absolute left-0 mt-1 w-96 rounded-2xl bg-white border-2 border-emerald-400/80 shadow-2xl py-3 z-50">
+                    <div className="px-4 pb-2 mb-2 text-xs font-extrabold text-emerald-800 uppercase tracking-widest border-b border-slate-200 flex items-center justify-between">
+                      <span className="flex items-center space-x-1">
+                        <span>🚕 One-Way Intercity Cab Drops</span>
+                      </span>
+                      <span className="text-[10px] text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded">Fixed Low Rates</span>
+                    </div>
+                    <div className="max-h-[70vh] overflow-y-auto">
+                      {oneWayCabs.map((route) => (
+                        <Link
+                          key={route.slug}
+                          href={`/${route.slug}`}
+                          onClick={() => setOneWayDropdownOpen(false)}
+                          className="block px-4 py-2.5 text-sm text-slate-800 hover:bg-emerald-50/80 hover:text-emerald-950 transition-colors border-b border-slate-100 last:border-0"
+                        >
+                          <div className="font-bold text-slate-900 flex items-center justify-between">
+                            <span className="truncate pr-2">{route.name}</span>
+                          </div>
+                          <div className="text-xs text-slate-500 flex items-center justify-between mt-0.5">
+                            <span>{route.origin} &rarr; {route.destination}</span>
+                            <span className="text-emerald-700 font-extrabold font-mono shrink-0">
+                              ₹{route.pricing.dzire.toLocaleString("en-IN")} Drop
+                            </span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="pt-2 mt-1 border-t border-slate-200 px-4 text-center">
+                      <Link
+                        href="/#oneway"
+                        onClick={() => setOneWayDropdownOpen(false)}
+                        className="text-xs font-black text-emerald-800 hover:text-emerald-950 uppercase tracking-wider block py-1"
+                      >
+                        View All One-Way Drops &rarr;
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>
 
               <Link
-                href="/#destinations"
-                className="px-3.5 py-2 rounded-xl text-sm font-bold text-slate-800 hover:text-amber-700 hover:bg-amber-50/70 transition-all"
-              >
-                Destinations
-              </Link>
-
-              <Link
                 href="/#fleet"
-                className="px-3.5 py-2 rounded-xl text-sm font-bold text-slate-800 hover:text-amber-700 hover:bg-amber-50/70 transition-all"
+                className="px-3 py-2 rounded-xl text-sm font-bold text-slate-800 hover:text-amber-700 hover:bg-amber-50/70 transition-all"
               >
                 Our Fleet
               </Link>
 
               <Link
                 href="/contact"
-                className="px-3.5 py-2 rounded-xl text-sm font-bold text-slate-800 hover:text-amber-700 hover:bg-amber-50/70 transition-all"
+                className="px-3 py-2 rounded-xl text-sm font-bold text-slate-800 hover:text-amber-700 hover:bg-amber-50/70 transition-all"
               >
                 Custom Quote
               </Link>
@@ -191,7 +262,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b-2 border-amber-400 px-5 pt-4 pb-8 space-y-4 shadow-2xl">
+        <div className="lg:hidden bg-white border-b-2 border-amber-400 px-5 pt-4 pb-8 space-y-5 shadow-2xl max-h-[85vh] overflow-y-auto">
           <div className="pb-3 border-b border-slate-200 text-xs text-amber-800 font-serif italic font-medium">
             &ldquo;{siteConfig.slogan}&rdquo;
           </div>
@@ -213,32 +284,51 @@ export default function Navbar() {
             <span>Dev Deepawali 2026 Packages</span>
           </Link>
 
-          <div className="text-xs font-extrabold text-amber-800 uppercase tracking-widest pt-1">
-            Top Pilgrimage Circuits
-          </div>
-          <div className="space-y-1.5 pl-3 border-l-2 border-amber-400">
-            {routesData.map((route) => (
-              <Link
-                key={route.slug}
-                href={`/${route.slug}`}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-1.5 text-sm text-slate-800 hover:text-amber-800"
-              >
-                <span className="font-bold text-slate-900">{route.name}</span>
-                <span className="block text-xs text-amber-700 font-mono font-bold">
-                  From ₹{route.pricing.dzire.toLocaleString("en-IN")}
-                </span>
-              </Link>
-            ))}
+          {/* Section 1: Pilgrim Tour Packages */}
+          <div className="space-y-2 pt-2">
+            <div className="text-xs font-black text-amber-900 uppercase tracking-widest bg-amber-50 px-3 py-1.5 rounded-lg border border-amber-200 flex items-center justify-between">
+              <span>🛕 Pilgrim Tour Packages</span>
+              <span className="text-[10px] text-amber-700 font-bold">Round Trip</span>
+            </div>
+            <div className="space-y-1 pl-2 border-l-2 border-amber-400">
+              {tourPackages.map((route) => (
+                <Link
+                  key={route.slug}
+                  href={`/${route.slug}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-1.5 px-2 rounded hover:bg-amber-50 text-sm text-slate-800"
+                >
+                  <span className="font-bold text-slate-900 block">{route.name}</span>
+                  <span className="text-xs text-amber-700 font-mono font-bold">
+                    From ₹{route.pricing.dzire.toLocaleString("en-IN")}
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
 
-          <Link
-            href="/#destinations"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-base font-bold text-slate-900 hover:text-amber-700"
-          >
-            Top Destinations
-          </Link>
+          {/* Section 2: One-Way Cab Drops */}
+          <div className="space-y-2 pt-2">
+            <div className="text-xs font-black text-emerald-900 uppercase tracking-widest bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200 flex items-center justify-between">
+              <span>🚕 One-Way Intercity Cab Drops</span>
+              <span className="text-[10px] text-emerald-700 font-bold">Point to Point</span>
+            </div>
+            <div className="space-y-1 pl-2 border-l-2 border-emerald-500">
+              {oneWayCabs.map((route) => (
+                <Link
+                  key={route.slug}
+                  href={`/${route.slug}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-1.5 px-2 rounded hover:bg-emerald-50 text-sm text-slate-800"
+                >
+                  <span className="font-bold text-slate-900 block">{route.name}</span>
+                  <span className="text-xs text-emerald-700 font-mono font-bold">
+                    ₹{route.pricing.dzire.toLocaleString("en-IN")} Drop
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <Link
             href="/#fleet"
