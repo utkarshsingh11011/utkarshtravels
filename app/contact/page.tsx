@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle2, Clock, Sparkles, Award } from "lucide-react";
 import siteConfig from "@/data/site.json";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
@@ -83,25 +82,16 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Business Card & NAP */}
           <div className="lg:col-span-5 space-y-6">
-            {/* Business Card Visual Showcase */}
+            {/* Coordinator & Chauffeur Contact Desk */}
             <div className="bg-white text-slate-900 p-6 rounded-3xl border-2 border-amber-400/60 shadow-xl space-y-4">
               <div className="flex items-center justify-between border-b border-amber-400/40 pb-3">
                 <span className="text-xs font-bold text-amber-900 uppercase tracking-widest flex items-center space-x-1.5">
-                  <Award className="w-4 h-4" />
-                  <span>Official Business Card</span>
+                  <Award className="w-4 h-4 text-amber-600" />
+                  <span>Chauffeur &amp; Coordinator Desk</span>
                 </span>
                 <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300">
-                  Verified Contact
+                  Verified Operator
                 </span>
-              </div>
-
-              <div className="relative rounded-2xl overflow-hidden border border-amber-400/40 shadow-md aspect-[512/307]">
-                <Image
-                  src="/images/business-card.png"
-                  alt="Utkarsh Travels Business Card"
-                  fill
-                  className="object-cover"
-                />
               </div>
 
               {/* Verified Contact Details */}

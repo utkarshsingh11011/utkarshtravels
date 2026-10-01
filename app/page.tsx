@@ -153,33 +153,57 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column: Business Card Spotlight */}
+            {/* Right Column: Quick Tariff & Booking Desk */}
             <div className="lg:col-span-5">
               <div className="bg-white border-2 border-amber-400/60 rounded-3xl p-6 sm:p-7 shadow-xl backdrop-blur-md relative overflow-hidden group">
                 <div className="flex items-center justify-between border-b border-amber-400/40 pb-3 mb-4">
                   <span className="text-xs font-bold text-amber-900 uppercase tracking-widest flex items-center space-x-1.5">
-                    <Award className="w-4 h-4" />
-                    <span>Official Business Card</span>
+                    <Award className="w-4 h-4 text-amber-600" />
+                    <span>Instant Booking Desk</span>
                   </span>
                   <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300">
-                    Verified Operator
+                    24/7 Available
                   </span>
                 </div>
 
-                {/* Real Business Card Image */}
-                <div className="relative rounded-2xl overflow-hidden border border-amber-400/40 shadow-md aspect-[512/307]">
-                  <Image
-                    src="/images/business-card.png"
-                    alt="Utkarsh Travels Official Business Card - Utkarsh Singh"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                {/* Popular Fares Overview Box */}
+                <div className="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                  <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">
+                    Popular Route Fixed Tariffs
+                  </span>
+                  <div className="space-y-2 text-xs">
+                    <div className="flex items-center justify-between py-1.5 border-b border-slate-200/80">
+                      <span className="font-semibold text-slate-800">Varanasi ⇄ Ayodhya</span>
+                      <span className="font-mono font-bold text-amber-700">₹5,500</span>
+                    </div>
+                    <div className="flex items-center justify-between py-1.5 border-b border-slate-200/80">
+                      <span className="font-semibold text-slate-800">Varanasi ⇄ Prayagraj</span>
+                      <span className="font-mono font-bold text-amber-700">₹3,500</span>
+                    </div>
+                    <div className="flex items-center justify-between py-1.5 border-b border-slate-200/80">
+                      <span className="font-semibold text-slate-800">Varanasi ⇄ Vindhyachal</span>
+                      <span className="font-mono font-bold text-amber-700">₹2,400</span>
+                    </div>
+                    <div className="flex items-center justify-between py-1.5">
+                      <span className="font-semibold text-slate-800">Varanasi ⇄ Gaya &amp; Bodh Gaya</span>
+                      <span className="font-mono font-bold text-amber-700">₹7,000</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Chauffeur Fleet Chip Badges */}
+                <div className="mt-4 flex flex-wrap gap-1.5 text-[11px]">
+                  <span className="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-semibold border border-amber-300">Swift Dzire</span>
+                  <span className="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-semibold border border-amber-300">Innova Crysta</span>
+                  <span className="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-semibold border border-amber-300">Maharaja (15S)</span>
+                  <span className="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-semibold border border-amber-300">Urbania (16S)</span>
+                  <span className="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-semibold border border-amber-300">Mini Bus (35S)</span>
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-amber-400/30 flex items-center justify-between text-xs">
                   <div>
                     <span className="font-bold text-slate-900 block">{siteConfig.founder}</span>
-                    <span className="text-slate-600 text-[11px]">Tour Coordinator • Mehmoorganj</span>
+                    <span className="text-slate-600 text-[11px]">Tour Coordinator • Mehmoorganj, VNS</span>
                   </div>
                   <a
                     href={`tel:${siteConfig.phone}`}
