@@ -62,17 +62,17 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-[#FAF8F5] text-slate-900 py-6 sm:py-10">
+    <div className="bg-[#FAFAF9] text-slate-900 py-6 sm:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <Breadcrumbs items={[{ name: "Contact & Custom Quote", url: "/contact" }]} />
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-700 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-100 border border-amber-400/60 text-amber-900 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-amber-600" />
             <span>Direct Coordinator Access</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A1931] tracking-tight mt-3 font-serif">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0F172A] tracking-tight mt-3 font-serif">
             Contact Utkarsh Travels
           </h1>
           <p className="text-slate-600 mt-3 text-base sm:text-lg">
@@ -84,18 +84,18 @@ export default function ContactPage() {
           {/* Left Column: Business Card & NAP */}
           <div className="lg:col-span-5 space-y-6">
             {/* Business Card Visual Showcase */}
-            <div className="bg-[#0A1931] text-white p-6 rounded-3xl border-2 border-amber-500/40 shadow-xl space-y-4">
-              <div className="flex items-center justify-between border-b border-amber-500/30 pb-3">
-                <span className="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center space-x-1.5">
+            <div className="bg-white text-slate-900 p-6 rounded-3xl border-2 border-amber-400/60 shadow-xl space-y-4">
+              <div className="flex items-center justify-between border-b border-amber-400/40 pb-3">
+                <span className="text-xs font-bold text-amber-900 uppercase tracking-widest flex items-center space-x-1.5">
                   <Award className="w-4 h-4" />
                   <span>Official Business Card</span>
                 </span>
-                <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
+                <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300">
                   Verified Contact
                 </span>
               </div>
 
-              <div className="relative rounded-2xl overflow-hidden border border-amber-500/30 aspect-[512/307]">
+              <div className="relative rounded-2xl overflow-hidden border border-amber-400/40 shadow-md aspect-[512/307]">
                 <Image
                   src="/images/business-card.png"
                   alt="Utkarsh Travels Business Card"
@@ -106,38 +106,38 @@ export default function ContactPage() {
 
               {/* Verified Contact Details */}
               <div className="pt-2 space-y-3 text-xs">
-                <div className="flex items-start space-x-3 text-slate-200">
-                  <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <div className="flex items-start space-x-3 text-slate-700">
+                  <MapPin className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white block text-sm">{siteConfig.founder} — Utkarsh Travels</strong>
-                    <span className="text-slate-400">
+                    <strong className="text-slate-900 block text-sm">{siteConfig.founder} — Utkarsh Travels</strong>
+                    <span className="text-slate-600">
                       {siteConfig.address.street}, {siteConfig.address.locality}, UP - {siteConfig.address.postalCode}
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-3 text-slate-200">
-                  <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                <div className="flex items-center space-x-3 text-slate-700">
+                  <Phone className="w-4 h-4 text-amber-600 shrink-0" />
                   <div>
-                    <span className="text-slate-400 block text-[11px]">Primary Phone &amp; WhatsApp:</span>
-                    <a href={`tel:${siteConfig.phone}`} className="font-bold text-amber-400 text-sm hover:underline">
+                    <span className="text-slate-500 block text-[11px]">Primary Phone &amp; WhatsApp:</span>
+                    <a href={`tel:${siteConfig.phone}`} className="font-bold text-amber-800 text-sm hover:underline">
                       {siteConfig.phoneDisplay}
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-3 text-slate-200">
-                  <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                <div className="flex items-center space-x-3 text-slate-700">
+                  <Mail className="w-4 h-4 text-amber-600 shrink-0" />
                   <div>
-                    <span className="text-slate-400 block text-[11px]">Inquiry Email:</span>
-                    <a href={`mailto:${siteConfig.email}`} className="text-amber-300 hover:underline">
+                    <span className="text-slate-500 block text-[11px]">Inquiry Email:</span>
+                    <a href={`mailto:${siteConfig.email}`} className="text-amber-800 hover:underline">
                       {siteConfig.email}
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-3 pt-2 border-t border-slate-800 text-slate-400">
-                  <Clock className="w-4 h-4 text-slate-400 shrink-0" />
+                <div className="flex items-center space-x-3 pt-2 border-t border-slate-200 text-slate-600">
+                  <Clock className="w-4 h-4 text-slate-500 shrink-0" />
                   <span>{siteConfig.hours}</span>
                 </div>
               </div>
@@ -146,7 +146,7 @@ export default function ContactPage() {
             {/* Embedded Google Map */}
             <div className="bg-white border-2 border-slate-200 rounded-3xl overflow-hidden shadow-sm">
               <div className="p-4 border-b border-slate-100 flex items-center justify-between">
-                <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
                   Office Location — Mehmoorganj, Varanasi
                 </h3>
               </div>
@@ -169,12 +169,12 @@ export default function ContactPage() {
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto border-2 border-emerald-400">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h2 className="text-2xl font-black text-[#0A1931] font-serif">Inquiry Dispatched Successfully!</h2>
+                <h2 className="text-2xl font-black text-[#0F172A] font-serif">Inquiry Dispatched Successfully!</h2>
                 <div className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed space-y-2">
                   <p>
                     Your requirements have been sent to <strong>Utkarsh Singh</strong>. A copy has been routed to <strong>{siteConfig.email}</strong>.
                   </p>
-                  <p className="text-xs text-amber-700 font-semibold bg-amber-50 p-3 rounded-xl border border-amber-200">
+                  <p className="text-xs text-amber-900 font-semibold bg-amber-50 p-3 rounded-xl border border-amber-200">
                     For priority response, your WhatsApp chat has been prepared with your booking ticket.
                   </p>
                 </div>
@@ -183,16 +183,16 @@ export default function ContactPage() {
                   <button
                     type="button"
                     onClick={directWhatsAppInquiry}
-                    className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-extrabold text-sm shadow-lg shadow-amber-500/25 transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 text-white font-extrabold text-sm shadow-md shadow-emerald-600/20 transition-all"
                   >
-                    <MessageCircle className="w-4 h-4 fill-slate-950 text-amber-500" />
+                    <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
                     <span>Open WhatsApp Chat (+91 9648974238)</span>
                   </button>
 
                   {responseUrls.mailtoUrl && (
                     <a
                       href={responseUrls.mailtoUrl}
-                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-5 py-3.5 rounded-2xl bg-slate-800 text-white font-semibold text-xs transition-colors"
+                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-5 py-3.5 rounded-2xl bg-slate-900 text-white font-semibold text-xs transition-colors"
                     >
                       <Mail className="w-4 h-4 text-amber-400" />
                       <span>Send via Email Client</span>
@@ -203,7 +203,7 @@ export default function ContactPage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <h2 className="text-2xl font-black text-[#0A1931] font-serif">
+                  <h2 className="text-2xl font-black text-[#0F172A] font-serif">
                     Request a Customized Pilgrimage Tour Quote
                   </h2>
                   <p className="text-xs sm:text-sm text-slate-600 mt-1">
@@ -358,16 +358,16 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full sm:w-auto flex-1 flex items-center justify-center space-x-2 py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-black text-sm transition-all shadow-xl shadow-amber-500/25 disabled:opacity-50"
+                    className="w-full sm:w-auto flex-1 flex items-center justify-center space-x-2 py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 text-white font-black text-sm transition-all shadow-md shadow-emerald-600/20 disabled:opacity-50"
                   >
-                    <Send className="w-4 h-4" />
+                    <Send className="w-4 h-4 text-white" />
                     <span>{loading ? "Sending..." : "Submit Inquiry to Utkarsh Singh"}</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={directWhatsAppInquiry}
-                    className="w-full sm:w-auto flex items-center justify-center space-x-2 py-4 px-6 rounded-2xl bg-[#0A1931] hover:bg-[#071326] text-white font-bold text-xs transition-colors"
+                    className="w-full sm:w-auto flex items-center justify-center space-x-2 py-4 px-6 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition-colors"
                   >
                     <MessageCircle className="w-4 h-4 text-amber-400" />
                     <span>Direct WhatsApp</span>

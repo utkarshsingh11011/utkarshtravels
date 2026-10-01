@@ -6,7 +6,7 @@ interface LogoProps {
   className?: string;
 }
 
-export default function Logo({ variant = "light", className = "" }: LogoProps) {
+export default function Logo({ variant = "dark", className = "" }: LogoProps) {
   const isLight = variant === "light";
   const logoSrc = isLight ? "/images/brand-logo-horizontal-light.png" : "/images/brand-logo-horizontal.png";
 
