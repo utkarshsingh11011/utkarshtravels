@@ -32,6 +32,7 @@ export interface RoutePricing {
   dzire: number;
   ertiga: number;
   innovaCrysta: number;
+  maharaja15: number;
   urbania16: number;
   tempoTraveller17: number;
   tempoTraveller20: number;

@@ -122,6 +122,7 @@ export default function Footer() {
               <li>Swift Dzire (Sedan)</li>
               <li>Maruti Ertiga (MUV)</li>
               <li>Toyota Innova Crysta</li>
+              <li>Maharaja Tempo Traveller (15S)</li>
               <li>Force Urbania (16S Luxury)</li>
               <li>Tempo Traveller (17S &amp; 20S)</li>
               <li>Tempo Traveller (26S High-Roof)</li>

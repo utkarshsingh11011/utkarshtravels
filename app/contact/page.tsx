@@ -297,8 +297,8 @@ export default function ContactPage() {
                     >
                       <option value="1-4 (Sedan)">1 to 4 Passengers (Sedan)</option>
                       <option value="5-7 (MUV/SUV)">5 to 7 Passengers (Ertiga / Innova)</option>
-                      <option value="8-16 (Force Urbania)">8 to 16 Passengers (Force Urbania 16S)</option>
-                      <option value="17-20 (Tempo Traveller)">17 to 20 Passengers (Tempo Traveller)</option>
+                      <option value="8-15 (Maharaja / Urbania)">8 to 15 Passengers (Maharaja 15S / Urbania 16S)</option>
+                      <option value="16-20 (Tempo Traveller)">16 to 20 Passengers (17S / 20S Tempo Traveller)</option>
                       <option value="21-26 (Tempo Traveller)">21 to 26 Passengers (26S Tempo Traveller)</option>
                       <option value="27-35 (Mini Bus)">27 to 35 Passengers (Tourist Mini Bus)</option>
                       <option value="36-49 (Coach)">36 to 49 Passengers (49S Luxury Tourist Coach)</option>
@@ -317,6 +317,7 @@ export default function ContactPage() {
                       <option value="Swift Dzire (4S)">Swift Dzire (4S AC Sedan)</option>
                       <option value="Maruti Ertiga (6S)">Maruti Ertiga (6S AC MUV)</option>
                       <option value="Toyota Innova Crysta (7S)">Toyota Innova Crysta (Premium SUV)</option>
+                      <option value="Maharaja Tempo Traveller (15S)">Maharaja Tempo Traveller (15S Luxury)</option>
                       <option value="Force Urbania (16S)">Force Urbania (16S Luxury Van)</option>
                       <option value="Tempo Traveller 17S">Tempo Traveller (17 Seater)</option>
                       <option value="Tempo Traveller 20S">Tempo Traveller (20 Seater)</option>

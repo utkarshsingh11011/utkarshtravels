@@ -56,6 +56,20 @@
     "features": ["Individual AC Vents", "Panoramic Viewing Windows", "Luxury Reclining Seats", "Individual Reading Lights", "Soft Air-Suspension Ride"]
   },
   {
+    "id": "maharaja15",
+    "name": "Maharaja Tempo Traveller (15-Seater)",
+    "shortName": "Maharaja (15S)",
+    "category": "Luxury Traveller",
+    "image": "/images/vehicles/maharaja-15.jpg",
+    "seating": "15 Passengers + 1 Chauffeur",
+    "passengers": 15,
+    "luggage": "Spacious Rear Luggage & Overhead Racks",
+    "ac": true,
+    "idealFor": "VIP pilgrimage, luxury group travel & premium family yatras",
+    "description": "Premium Maharaja 15-seater configuration featuring ultra-comfortable plush recliner seats, ambient lighting, individual AC vents, and executive-class long-distance ride quality.",
+    "features": ["Plush Recliner Maharaja Seats", "Individual AC Vents", "Ambient LED Lighting", "Audio/Video Entertainment", "Spacious Rear Boot"]
+  },
+  {
     "id": "tempoTraveller17",
     "name": "17-Seater Tempo Traveller",
     "shortName": "17S Tempo Traveller",

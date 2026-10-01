@@ -20,7 +20,7 @@ export default function FleetShowcase() {
             Our Verified Vehicle Fleet
           </h2>
           <p className="text-slate-300 mt-4 text-base sm:text-lg">
-            From comfortable Dzire sedans for couple darshan to luxury Toyota Innova Crysta, Force Urbania, Tempo Travellers (17S, 20S, 26S), and 35S &amp; 49S Tourist Coaches for large pilgrimage groups.
+            From comfortable Dzire sedans for couple darshan to luxury Toyota Innova Crysta, Maharaja Tempo Traveller (15S), Force Urbania, Tempo Travellers (17S, 20S, 26S), and 35S &amp; 49S Tourist Coaches for large pilgrimage groups.
           </p>
         </div>
 
@@ -43,6 +43,7 @@ export default function FleetShowcase() {
               <span>✓ Swift Dzire</span>
               <span>✓ Maruti Ertiga</span>
               <span>✓ Innova Crysta</span>
+              <span>✓ Maharaja Tempo (15S)</span>
               <span>✓ Force Urbania (16S)</span>
               <span>✓ Tempo Traveller (17S, 20S, 26S)</span>
               <span>✓ Mini Bus (35S) &amp; Coach (49S)</span>
