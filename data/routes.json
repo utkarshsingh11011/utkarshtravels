@@ -696,5 +696,496 @@
       "varanasi-to-prayagraj-taxi-service",
       "varanasi-to-vindhyachal-taxi-service"
     ]
+  },
+  {
+    "slug": "varanasi-to-prayagraj-cab",
+    "name": "Varanasi to Prayagraj One-Way Cab",
+    "h1": "Varanasi to Prayagraj One-Way Cab",
+    "origin": "Varanasi",
+    "destination": "Prayagraj",
+    "image": "/images/destinations/prayagraj.jpg",
+    "packageType": "One-Way Cab",
+    "isOneWay": true,
+    "distance": "125 km",
+    "duration": "2.5 - 3 Hours",
+    "highway": "NH 19 via Mirzapur/Aurai",
+    "pickupDropZones": "All city locations, Cantt Railway Station, Babatpur Airport, Sangam, Civil Lines, Prayagraj Junction.",
+    "subtitle": "Direct door-to-door drops starting at just ₹2,199. No hidden fees, clean AC vehicles, and experienced highway drivers.",
+    "summary": "Book one-way Varanasi to Prayagraj taxi. Swift Dzire, Ertiga & Innova Crysta at best fares. Doorstep pickup, clean AC cabs.",
+    "pricing": {
+      "dzire": 2199,
+      "ertiga": 3999,
+      "innovaCrysta": 5699
+    },
+    "highlights": [
+      "24/7 Doorstep pickup from any Varanasi location or Babatpur Airport",
+      "Direct highway drop to Triveni Sangam, Civil Lines, or Prayagraj Junction",
+      "All-inclusive fuel & experienced professional driver allowance",
+      "Clean, sanitized air-conditioned vehicles with ample luggage space"
+    ],
+    "itinerary": [],
+    "terms": [
+      "Base fare includes vehicle, driver allowance, and fuel.",
+      "Toll plaza taxes and parking fees are extra as actual receipts."
+    ],
+    "seo": {
+      "title": "Varanasi to Prayagraj Cab @ ₹2199 | Utkarsh Travels",
+      "description": "Book one-way Varanasi to Prayagraj taxi. Swift Dzire, Ertiga & Innova Crysta at best fares. Doorstep pickup, clean AC cabs.",
+      "keywords": [
+        "varanasi to prayagraj cab",
+        "varanasi to prayagraj taxi fare",
+        "one way cab varanasi to prayagraj",
+        "varanasi prayagraj dzire taxi",
+        "varanasi sangam cab drop"
+      ]
+    },
+    "faq": [
+      {
+        "question": "What is the cab fare from Varanasi to Prayagraj?",
+        "answer": "Our one-way cab fare starts at ₹2,199 for Swift Dzire sedan, ₹3,999 for Maruti Ertiga MUV, and ₹5,699 for Toyota Innova Crysta."
+      },
+      {
+        "question": "Can I get an airport pickup for this route?",
+        "answer": "Yes, we provide 24/7 doorstep pickups from Babatpur Airport (VNS) or any location in Varanasi with direct drop anywhere in Prayagraj."
+      },
+      {
+        "question": "Is toll tax included in the one-way fare?",
+        "answer": "The base fare includes vehicle rental, driver allowance, and fuel. Toll taxes on NH 19 are payable as actual receipts."
+      }
+    ],
+    "relatedSlugs": [
+      "prayagraj-to-varanasi-cab",
+      "varanasi-to-ayodhya-cab",
+      "varanasi-to-gaya-cab"
+    ]
+  },
+  {
+    "slug": "prayagraj-to-varanasi-cab",
+    "name": "Prayagraj to Varanasi One-Way Cab",
+    "h1": "Prayagraj to Varanasi One-Way Cab",
+    "origin": "Prayagraj",
+    "destination": "Varanasi",
+    "image": "/images/destinations/prayagraj.jpg",
+    "packageType": "One-Way Cab",
+    "isOneWay": true,
+    "distance": "125 km",
+    "duration": "2.5 - 3 Hours",
+    "highway": "NH 19 via Mirzapur/Aurai",
+    "pickupDropZones": "Sangam, Civil Lines, Prayagraj Junction, Varanasi Cantt Railway Station, Babatpur Airport, Kashi Vishwanath.",
+    "subtitle": "Direct door-to-door drops starting at just ₹2,199. No hidden fees, clean AC vehicles, and experienced highway drivers.",
+    "summary": "Reliable one-way taxi from Prayagraj to Varanasi. Dzire, Ertiga & Innova Crysta with verified drivers. Book your drop now!",
+    "pricing": {
+      "dzire": 2199,
+      "ertiga": 3999,
+      "innovaCrysta": 5699
+    },
+    "highlights": [
+      "Doorstep pickup from Sangam, Civil Lines, or Prayagraj Junction",
+      "Direct drop to Babatpur Airport, Varanasi Cantt, or Kashi Vishwanath area",
+      "All-inclusive fuel & professional driver allowance",
+      "Verified, punctual chauffeurs for safe highway transit"
+    ],
+    "itinerary": [],
+    "terms": [
+      "Base fare includes vehicle, driver allowance, and fuel.",
+      "Toll plaza taxes and parking fees are extra as actual receipts."
+    ],
+    "seo": {
+      "title": "Prayagraj to Varanasi Cab @ ₹2199 | Utkarsh Travels",
+      "description": "Reliable one-way taxi from Prayagraj to Varanasi. Dzire, Ertiga & Innova Crysta with verified drivers. Book your drop now!",
+      "keywords": [
+        "prayagraj to varanasi cab",
+        "prayagraj to varanasi taxi fare",
+        "one way cab prayagraj to varanasi",
+        "sangam to kashi taxi",
+        "prayagraj varanasi innova drop"
+      ]
+    },
+    "faq": [
+      {
+        "question": "What is the cab fare from Prayagraj to Varanasi?",
+        "answer": "Our one-way cab fare starts at ₹2,199 for Swift Dzire sedan, ₹3,999 for Maruti Ertiga MUV, and ₹5,699 for Toyota Innova Crysta."
+      },
+      {
+        "question": "Can I get an airport pickup for this route?",
+        "answer": "Yes, we provide doorstep pickup from Civil Lines, Sangam ghats, or Prayagraj Junction with direct drop at Babatpur Airport (VNS) or any hotel in Varanasi."
+      },
+      {
+        "question": "Is toll tax included in the one-way fare?",
+        "answer": "The base fare includes vehicle, driver allowance, and fuel. Toll plaza charges are payable as actuals."
+      }
+    ],
+    "relatedSlugs": [
+      "varanasi-to-prayagraj-cab",
+      "ayodhya-to-varanasi-cab",
+      "varanasi-to-lucknow-cab"
+    ]
+  },
+  {
+    "slug": "varanasi-to-ayodhya-cab",
+    "name": "Varanasi to Ayodhya One-Way Cab",
+    "h1": "Varanasi to Ayodhya One-Way Cab",
+    "origin": "Varanasi",
+    "destination": "Ayodhya",
+    "image": "/images/destinations/ayodhya.jpg",
+    "packageType": "One-Way Cab",
+    "isOneWay": true,
+    "distance": "220 km",
+    "duration": "4.5 Hours",
+    "highway": "Purvanchal Expressway / NH 330 via Sultanpur",
+    "pickupDropZones": "Kashi Vishwanath area, Cantt, Babatpur Airport, Ayodhya Dham Railway Station, Ram Mandir area, Maharishi Valmiki Airport.",
+    "subtitle": "Direct door-to-door drops starting at just ₹2,499. No hidden fees, clean AC vehicles, and experienced highway drivers.",
+    "summary": "Book one-way Varanasi to Ayodhya taxi. Clean Dzire, Ertiga, Innova Crysta for Ram Mandir darshan. Guaranteed low rates.",
+    "pricing": {
+      "dzire": 2499,
+      "ertiga": 3299,
+      "innovaCrysta": 4799
+    },
+    "highlights": [
+      "Doorstep pickup from any Varanasi hotel, station, or Babatpur Airport",
+      "Expressway cruise via Purvanchal Expressway to Ram Mandir area",
+      "Direct drops to Ayodhya Dham Railway Station or Maharishi Valmiki Airport",
+      "Complimentary luggage handling and chilled AC ride"
+    ],
+    "itinerary": [],
+    "terms": [
+      "Base fare includes vehicle, driver allowance, and fuel.",
+      "Toll plaza taxes and parking fees are extra as actual receipts."
+    ],
+    "seo": {
+      "title": "Varanasi to Ayodhya Cab @ ₹2499 | Utkarsh Travels",
+      "description": "Book one-way Varanasi to Ayodhya taxi. Clean Dzire, Ertiga, Innova Crysta for Ram Mandir darshan. Guaranteed low rates.",
+      "keywords": [
+        "varanasi to ayodhya cab",
+        "varanasi to ayodhya taxi fare",
+        "one way cab varanasi to ayodhya",
+        "kashi to ram mandir taxi",
+        "varanasi ayodhya cab price"
+      ]
+    },
+    "faq": [
+      {
+        "question": "What is the cab fare from Varanasi to Ayodhya?",
+        "answer": "Our one-way fare starts at ₹2,499 for Swift Dzire sedan, ₹3,299 for Maruti Ertiga, and ₹4,799 for Toyota Innova Crysta."
+      },
+      {
+        "question": "Can I get an airport pickup for this route?",
+        "answer": "Yes, we offer direct pickup from Babatpur Airport (VNS) or any location in Varanasi with drop at Maharishi Valmiki Airport or Ram Mandir area in Ayodhya."
+      },
+      {
+        "question": "Is toll tax included in the one-way fare?",
+        "answer": "Base fare covers fuel and chauffeur allowance. Highway toll plaza fees on Purvanchal Expressway are extra at actual receipts."
+      }
+    ],
+    "relatedSlugs": [
+      "ayodhya-to-varanasi-cab",
+      "varanasi-to-prayagraj-cab",
+      "varanasi-to-lucknow-cab"
+    ]
+  },
+  {
+    "slug": "ayodhya-to-varanasi-cab",
+    "name": "Ayodhya to Varanasi One-Way Cab",
+    "h1": "Ayodhya to Varanasi One-Way Cab",
+    "origin": "Ayodhya",
+    "destination": "Varanasi",
+    "image": "/images/destinations/ayodhya.jpg",
+    "packageType": "One-Way Cab",
+    "isOneWay": true,
+    "distance": "220 km",
+    "duration": "4.5 Hours",
+    "highway": "Purvanchal Expressway / NH 330 via Sultanpur",
+    "pickupDropZones": "Ayodhya Dham Railway Station, Ram Mandir area, Maharishi Valmiki Airport, Kashi Vishwanath area, Cantt, Babatpur Airport.",
+    "subtitle": "Direct door-to-door drops starting at just ₹2,499. No hidden fees, clean AC vehicles, and experienced highway drivers.",
+    "summary": "Direct one-way cab from Ayodhya to Varanasi / Kashi. Swift Dzire, Ertiga & Innova Crysta available. Transparent fares.",
+    "pricing": {
+      "dzire": 2499,
+      "ertiga": 3299,
+      "innovaCrysta": 4799
+    },
+    "highlights": [
+      "Direct pickup from Maharishi Valmiki Airport, Ram Mandir, or hotels",
+      "Comfortable expressway travel back to Varanasi / Kashi Vishwanath Dham",
+      "Direct drop to Babatpur Airport (VNS) or Varanasi Cantt",
+      "Transparent pricing with no hidden driver surcharges"
+    ],
+    "itinerary": [],
+    "terms": [
+      "Base fare includes vehicle, driver allowance, and fuel.",
+      "Toll plaza taxes and parking fees are extra as actual receipts."
+    ],
+    "seo": {
+      "title": "Ayodhya to Varanasi Cab @ ₹2499 | Utkarsh Travels",
+      "description": "Direct one-way cab from Ayodhya to Varanasi / Kashi. Swift Dzire, Ertiga & Innova Crysta available. Transparent fares.",
+      "keywords": [
+        "ayodhya to varanasi cab",
+        "ayodhya to varanasi taxi fare",
+        "one way cab ayodhya to varanasi",
+        "ram mandir to kashi cab drop"
+      ]
+    },
+    "faq": [
+      {
+        "question": "What is the cab fare from Ayodhya to Varanasi?",
+        "answer": "One-way cab fare starts at ₹2,499 for Swift Dzire, ₹3,299 for Maruti Ertiga, and ₹4,799 for Toyota Innova Crysta."
+      },
+      {
+        "question": "Can I get an airport pickup for this route?",
+        "answer": "Yes, we pick up directly from Maharishi Valmiki Airport (Ayodhya) or any hotel with drop at Babatpur Airport (VNS) or Kashi Vishwanath area."
+      },
+      {
+        "question": "Is toll tax included in the one-way fare?",
+        "answer": "Base fare covers fuel and driver allowance. Expressway toll receipts are paid as incurred."
+      }
+    ],
+    "relatedSlugs": [
+      "varanasi-to-ayodhya-cab",
+      "lucknow-to-varanasi-cab",
+      "prayagraj-to-varanasi-cab"
+    ]
+  },
+  {
+    "slug": "varanasi-to-gaya-cab",
+    "name": "Varanasi to Gaya / Bodh Gaya One-Way Cab",
+    "h1": "Varanasi to Gaya / Bodh Gaya One-Way Cab",
+    "origin": "Varanasi",
+    "destination": "Gaya",
+    "image": "/images/destinations/bodhgaya.jpg",
+    "packageType": "One-Way Cab",
+    "isOneWay": true,
+    "distance": "255 km",
+    "duration": "5.5 - 6 Hours",
+    "highway": "Grand Trunk Road / NH 19 via Sasaram & Dehri",
+    "pickupDropZones": "Vishnupad Mandir, Mahabodhi Temple, Gaya Junction, Gaya Airport, Varanasi City & Airport.",
+    "subtitle": "Direct door-to-door drops starting at just ₹3,599. No hidden fees, clean AC vehicles, and experienced highway drivers.",
+    "summary": "Book one-way Varanasi to Gaya / Bodh Gaya taxi. Best rates for Dzire, Ertiga & Innova Crysta for Pind Daan & Buddhist tour.",
+    "pricing": {
+      "dzire": 3599,
+      "ertiga": 4399,
+      "innovaCrysta": 6199
+    },
+    "highlights": [
+      "Ideal intercity cab transfer for Pind Daan pilgrims & Buddhist tourists",
+      "Direct drop to Vishnupad Mandir, Mahabodhi Temple, or Gaya Airport",
+      "Smooth GT Road highway drive with experienced long-distance driver",
+      "Clean, air-conditioned Sedans & MUVs with spacious boot space"
+    ],
+    "itinerary": [],
+    "terms": [
+      "Base fare includes vehicle, driver allowance, and fuel.",
+      "Toll plaza taxes, parking fees, and Bihar state border entry tax are extra at actual receipts."
+    ],
+    "seo": {
+      "title": "Varanasi to Gaya Cab @ ₹3599 | Utkarsh Travels",
+      "description": "Book one-way Varanasi to Gaya / Bodh Gaya taxi. Best rates for Dzire, Ertiga & Innova Crysta for Pind Daan & Buddhist tour.",
+      "keywords": [
+        "varanasi to gaya cab",
+        "varanasi to gaya taxi fare",
+        "one way cab varanasi to bodh gaya",
+        "varanasi gaya pind daan taxi"
+      ]
+    },
+    "faq": [
+      {
+        "question": "What is the cab fare from Varanasi to Gaya?",
+        "answer": "One-way fare starts at ₹3,599 for Swift Dzire sedan, ₹4,399 for Maruti Ertiga, and ₹6,199 for Toyota Innova Crysta."
+      },
+      {
+        "question": "Can I get an airport pickup for this route?",
+        "answer": "Yes, we provide doorstep pickup from Babatpur Airport (VNS) or any hotel in Varanasi with drop at Vishnupad Mandir, Mahabodhi Temple, or Gaya Airport."
+      },
+      {
+        "question": "Is toll tax included in the one-way fare?",
+        "answer": "Fuel and driver allowance are included. Toll taxes and Bihar state border entry permit fees are extra as actuals."
+      }
+    ],
+    "relatedSlugs": [
+      "gaya-to-varanasi-cab",
+      "varanasi-to-prayagraj-cab",
+      "varanasi-to-ayodhya-cab"
+    ]
+  },
+  {
+    "slug": "gaya-to-varanasi-cab",
+    "name": "Gaya to Varanasi One-Way Cab",
+    "h1": "Gaya to Varanasi One-Way Cab",
+    "origin": "Gaya",
+    "destination": "Varanasi",
+    "image": "/images/destinations/bodhgaya.jpg",
+    "packageType": "One-Way Cab",
+    "isOneWay": true,
+    "distance": "255 km",
+    "duration": "5.5 - 6 Hours",
+    "highway": "Grand Trunk Road / NH 19 via Sasaram & Dehri",
+    "pickupDropZones": "Vishnupad Mandir, Mahabodhi Temple, Gaya Junction, Gaya Airport, Varanasi City & Airport.",
+    "subtitle": "Direct door-to-door drops starting at just ₹3,599. No hidden fees, clean AC vehicles, and experienced highway drivers.",
+    "summary": "Reliable one-way cab from Bodh Gaya / Gaya to Varanasi. Well-maintained AC Sedans & SUVs. Instant booking via WhatsApp.",
+    "pricing": {
+      "dzire": 3599,
+      "ertiga": 4399,
+      "innovaCrysta": 6199
+    },
+    "highlights": [
+      "Doorstep pickup from Bodh Gaya hotels, Vishnupad area, or Gaya Airport",
+      "Direct drop to Babatpur Airport (VNS), Varanasi Cantt, or Kashi Vishwanath",
+      "Safe, comfortable interstate travel on Grand Trunk Road / NH 19",
+      "All-inclusive fuel & experienced chauffeur allowance"
+    ],
+    "itinerary": [],
+    "terms": [
+      "Base fare includes vehicle, driver allowance, and fuel.",
+      "Toll plaza taxes, parking fees, and UP state border permit fees are extra at actual receipts."
+    ],
+    "seo": {
+      "title": "Gaya to Varanasi Cab @ ₹3599 | Utkarsh Travels",
+      "description": "Reliable one-way cab from Bodh Gaya / Gaya to Varanasi. Well-maintained AC Sedans & SUVs. Instant booking via WhatsApp.",
+      "keywords": [
+        "gaya to varanasi cab",
+        "bodh gaya to varanasi taxi fare",
+        "one way cab gaya to varanasi",
+        "gaya varanasi innova drop"
+      ]
+    },
+    "faq": [
+      {
+        "question": "What is the cab fare from Gaya to Varanasi?",
+        "answer": "Our one-way fare starts at ₹3,599 for Swift Dzire, ₹4,399 for Maruti Ertiga, and ₹6,199 for Toyota Innova Crysta."
+      },
+      {
+        "question": "Can I get an airport pickup for this route?",
+        "answer": "Yes, we pick up from Gaya Airport, Mahabodhi Temple hotels, or Gaya Junction with drop at Babatpur Airport (VNS) or Varanasi Cantt."
+      },
+      {
+        "question": "Is toll tax included in the one-way fare?",
+        "answer": "Base fare includes fuel and driver allowance. Toll plaza taxes are paid as actual receipts."
+      }
+    ],
+    "relatedSlugs": [
+      "varanasi-to-gaya-cab",
+      "prayagraj-to-varanasi-cab",
+      "ayodhya-to-varanasi-cab"
+    ]
+  },
+  {
+    "slug": "varanasi-to-lucknow-cab",
+    "name": "Varanasi to Lucknow One-Way Cab",
+    "h1": "Varanasi to Lucknow One-Way Cab",
+    "origin": "Varanasi",
+    "destination": "Lucknow",
+    "image": "/images/destinations/varanasi.jpg",
+    "packageType": "One-Way Cab",
+    "isOneWay": true,
+    "distance": "315 km",
+    "duration": "5.5 Hours",
+    "highway": "Purvanchal Expressway / NH 731 via Jaunpur & Sultanpur",
+    "pickupDropZones": "Charbagh Station, Chaudhary Charan Singh International Airport (Amausi), Gomti Nagar, Varanasi Cantt & Airport.",
+    "subtitle": "Direct door-to-door drops starting at just ₹4,199. No hidden fees, clean AC vehicles, and experienced highway drivers.",
+    "summary": "Fast one-way taxi from Varanasi to Lucknow Airport / City. Dzire, Ertiga & Innova Crysta. Affordable highway travel.",
+    "pricing": {
+      "dzire": 4199,
+      "ertiga": 5499,
+      "innovaCrysta": 7999
+    },
+    "highlights": [
+      "Pickup from any Varanasi doorstep or Babatpur Airport (VNS)",
+      "Smooth 5.5 hour drive via Purvanchal Expressway / NH 731",
+      "Direct drops to Amausi Airport (LKO), Charbagh Station, or Gomti Nagar",
+      "Punctual 24/7 service with clean, sanitized vehicles"
+    ],
+    "itinerary": [],
+    "terms": [
+      "Base fare includes vehicle, driver allowance, and fuel.",
+      "Toll plaza taxes and parking fees are extra as actual receipts."
+    ],
+    "seo": {
+      "title": "Varanasi to Lucknow Cab @ ₹4199 | Utkarsh Travels",
+      "description": "Fast one-way taxi from Varanasi to Lucknow Airport / City. Dzire, Ertiga & Innova Crysta. Affordable highway travel.",
+      "keywords": [
+        "varanasi to lucknow cab",
+        "varanasi to lucknow taxi fare",
+        "one way cab varanasi to lucknow",
+        "varanasi lucknow airport cab"
+      ]
+    },
+    "faq": [
+      {
+        "question": "What is the cab fare from Varanasi to Lucknow?",
+        "answer": "Our one-way fare starts at ₹4,199 for Swift Dzire, ₹5,499 for Maruti Ertiga, and ₹7,999 for Toyota Innova Crysta."
+      },
+      {
+        "question": "Can I get an airport pickup for this route?",
+        "answer": "Yes, we offer doorstep pickup anywhere in Varanasi or Babatpur Airport with direct drop at Chaudhary Charan Singh International Airport (Amausi) or Gomti Nagar in Lucknow."
+      },
+      {
+        "question": "Is toll tax included in the one-way fare?",
+        "answer": "Base fare covers fuel and driver allowance. Toll receipts on Purvanchal Expressway / NH 731 are extra at actuals."
+      }
+    ],
+    "relatedSlugs": [
+      "lucknow-to-varanasi-cab",
+      "varanasi-to-ayodhya-cab",
+      "varanasi-to-prayagraj-cab"
+    ]
+  },
+  {
+    "slug": "lucknow-to-varanasi-cab",
+    "name": "Lucknow to Varanasi One-Way Cab",
+    "h1": "Lucknow to Varanasi One-Way Cab",
+    "origin": "Lucknow",
+    "destination": "Varanasi",
+    "image": "/images/destinations/varanasi.jpg",
+    "packageType": "One-Way Cab",
+    "isOneWay": true,
+    "distance": "315 km",
+    "duration": "5.5 Hours",
+    "highway": "Purvanchal Expressway / NH 731 via Jaunpur & Sultanpur",
+    "pickupDropZones": "Charbagh Station, Chaudhary Charan Singh International Airport (Amausi), Gomti Nagar, Varanasi Cantt & Airport.",
+    "subtitle": "Direct door-to-door drops starting at just ₹4,199. No hidden fees, clean AC vehicles, and experienced highway drivers.",
+    "summary": "Book one-way Lucknow to Varanasi taxi service. Best fares on Dzire, Ertiga & Innova Crysta with professional highway drivers.",
+    "pricing": {
+      "dzire": 4199,
+      "ertiga": 5499,
+      "innovaCrysta": 7999
+    },
+    "highlights": [
+      "Direct pickup from Amausi Airport (LKO), Charbagh Station, or Gomti Nagar",
+      "Fast expressway drive to Kashi Vishwanath / Varanasi Cantt",
+      "Direct drop to Babatpur Airport (VNS) or any hotel in Varanasi",
+      "Professional driver allowance & all-inclusive fuel"
+    ],
+    "itinerary": [],
+    "terms": [
+      "Base fare includes vehicle, driver allowance, and fuel.",
+      "Toll plaza taxes and parking fees are extra as actual receipts."
+    ],
+    "seo": {
+      "title": "Lucknow to Varanasi Cab @ ₹4199 | Utkarsh Travels",
+      "description": "Book one-way Lucknow to Varanasi taxi service. Best fares on Dzire, Ertiga & Innova Crysta with professional highway drivers.",
+      "keywords": [
+        "lucknow to varanasi cab",
+        "lucknow to varanasi taxi fare",
+        "one way cab lucknow to varanasi",
+        "lucknow airport to kashi cab"
+      ]
+    },
+    "faq": [
+      {
+        "question": "What is the cab fare from Lucknow to Varanasi?",
+        "answer": "One-way fare starts at ₹4,199 for Swift Dzire, ₹5,499 for Maruti Ertiga, and ₹7,999 for Toyota Innova Crysta."
+      },
+      {
+        "question": "Can I get an airport pickup for this route?",
+        "answer": "Yes, we provide pickup from Amausi Airport (LKO), Charbagh Station, or Gomti Nagar with drop at Babatpur Airport (VNS) or any Varanasi hotel."
+      },
+      {
+        "question": "Is toll tax included in the one-way fare?",
+        "answer": "Base fare covers fuel and driver allowance. Expressway tolls are extra at actual receipts."
+      }
+    ],
+    "relatedSlugs": [
+      "varanasi-to-lucknow-cab",
+      "ayodhya-to-varanasi-cab",
+      "prayagraj-to-varanasi-cab"
+    ]
   }
 ]

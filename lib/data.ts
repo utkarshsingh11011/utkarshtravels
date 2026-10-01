@@ -52,6 +52,11 @@ export interface RouteItem {
   distance: string;
   duration: string;
   summary: string;
+  h1?: string;
+  subtitle?: string;
+  highway?: string;
+  pickupDropZones?: string;
+  isOneWay?: boolean;
   pricing: RoutePricing;
   highlights: string[];
   itinerary: RouteItineraryItem[];

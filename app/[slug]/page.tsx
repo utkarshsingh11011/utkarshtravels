@@ -117,8 +117,8 @@ export default async function RoutePage({ params }: RoutePageProps) {
         {/* Breadcrumb Navigation */}
         <Breadcrumbs
           items={[
-            { name: "Tour Packages", url: "/#destinations" },
-            { name: route.name, url: `/${route.slug}` },
+            { name: route.isOneWay ? "One-Way Cabs" : "Tour Packages", url: route.isOneWay ? "/#oneway" : "/#destinations" },
+            { name: route.h1 || route.name, url: `/${route.slug}` },
           ]}
         />
 
@@ -141,15 +141,15 @@ export default async function RoutePage({ params }: RoutePageProps) {
           <div className="relative z-10 p-6 sm:p-10 lg:p-12 max-w-4xl space-y-4">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-amber-100 border border-amber-400/60 text-amber-900 text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-              <span>{route.packageType} Package • Utkarsh Travels</span>
+              <span>{route.packageType} • Utkarsh Travels</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0F172A] tracking-tight leading-tight font-serif">
-              {route.name}
+              {route.h1 || route.name}
             </h1>
 
             <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-3xl">
-              {route.summary}
+              {route.subtitle || route.summary}
             </p>
 
             {/* Quick Metrics Bar */}
@@ -165,7 +165,7 @@ export default async function RoutePage({ params }: RoutePageProps) {
               <div className="bg-white/90 p-3.5 rounded-2xl border border-slate-200 shadow-sm">
                 <span className="text-slate-600 flex items-center space-x-1.5 mb-1">
                   <Clock className="w-3.5 h-3.5 text-amber-600" />
-                  <span>Driving Time</span>
+                  <span>Est. Drive Time</span>
                 </span>
                 <span className="font-bold text-slate-900">{route.duration}</span>
               </div>
@@ -173,9 +173,9 @@ export default async function RoutePage({ params }: RoutePageProps) {
               <div className="bg-white/90 p-3.5 rounded-2xl border border-slate-200 shadow-sm">
                 <span className="text-slate-600 flex items-center space-x-1.5 mb-1">
                   <Calendar className="w-3.5 h-3.5 text-amber-600" />
-                  <span>Departure</span>
+                  <span>Highway</span>
                 </span>
-                <span className="font-bold text-emerald-700">Daily / Flexible</span>
+                <span className="font-bold text-slate-900 text-xs truncate block">{route.highway || "NH Highway"}</span>
               </div>
 
               <div className="bg-white/90 p-3.5 rounded-2xl border border-slate-200 shadow-sm">
@@ -198,7 +198,7 @@ export default async function RoutePage({ params }: RoutePageProps) {
                 className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-extrabold text-sm shadow-xl shadow-emerald-600/20 transition-all hover:scale-[1.02]"
               >
                 <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
-                <span>Book This Route on WhatsApp</span>
+                <span>Book on WhatsApp</span>
               </a>
 
               <a
@@ -206,11 +206,24 @@ export default async function RoutePage({ params }: RoutePageProps) {
                 className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm border-2 border-amber-400/60 transition-colors"
               >
                 <Phone className="w-4 h-4 text-amber-400" />
-                <span>Call Chauffeur Desk</span>
+                <span>Call {siteConfig.phoneDisplay}</span>
               </a>
             </div>
           </div>
         </div>
+
+        {/* Pickup & Drop Zones Card if specified */}
+        {route.pickupDropZones && (
+          <div className="bg-white border-2 border-amber-400/60 rounded-3xl p-6 sm:p-8 shadow-md">
+            <div className="flex items-center space-x-2.5 text-amber-900 font-bold text-base font-serif mb-2">
+              <MapPin className="w-5 h-5 text-amber-600 shrink-0" />
+              <span>Doorstep Pickup &amp; Drop Coverage Zones</span>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+              {route.pickupDropZones}
+            </p>
+          </div>
+        )}
 
         {/* Rate Card Component */}
         <section aria-label="Rate Card">
