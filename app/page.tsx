@@ -67,12 +67,12 @@ export default function HomePage() {
       description: "Mandakini river Aarti, Gupt Godavari caves & 3-day pilgrimage circuit.",
     },
     {
-      name: "Varanasi (Kashi)",
-      title: "Ganga Aarti & Temple Circuit",
+      name: "Varanasi Local",
+      title: "Temple & Heritage Tour (8h/80km)",
       image: "/images/destinations/varanasi.jpg",
-      slug: "varanasi-to-ayodhya-taxi-service",
-      fare: "Custom",
-      description: "Dashashwamedh Ghat Aarti, Kashi Vishwanath, and Kaal Bhairav darshan.",
+      slug: "varanasi-local-darshan-heritage-tour",
+      fare: "From ₹2,000",
+      description: "Kashi Vishwanath, Annapurna, Sankat Mochan, BHU & evening Ganga Aarti drop.",
     },
   ];
 

@@ -262,6 +262,24 @@ export default function RateCard({ route, hidePricing }: RateCardProps) {
         })}
       </div>
 
+      {/* Package Terms & Operational Notes */}
+      {route.terms && route.terms.length > 0 && (
+        <div className="bg-amber-500/10 p-6 border-t-2 border-amber-400/40 text-xs text-slate-800 space-y-3">
+          <span className="font-bold text-amber-950 flex items-center space-x-1.5 text-sm font-serif">
+            <Info className="w-4 h-4 text-amber-700 shrink-0" />
+            <span>Package Terms &amp; Notes:</span>
+          </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+            {route.terms.map((term, i) => (
+              <div key={i} className="flex items-start space-x-2 bg-white/90 p-3 rounded-xl border border-amber-300 shadow-sm">
+                <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span className="text-slate-800 font-medium text-xs leading-relaxed">{term}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Inclusions & Policies Footer */}
       <div className="bg-slate-50 p-6 border-t-2 border-amber-400/40 text-xs text-slate-700 space-y-3">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

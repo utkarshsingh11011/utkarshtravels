@@ -601,5 +601,100 @@
       "varanasi-to-prayagraj-taxi-service",
       "varanasi-to-vindhyachal-taxi-service"
     ]
+  },
+  {
+    "slug": "varanasi-local-darshan-heritage-tour",
+    "name": "Varanasi Local Darshan & Heritage Tour (8 Hrs / 80 Km)",
+    "origin": "Varanasi",
+    "destination": "Kashi Vishwanath, BHU & Ganga Ghats",
+    "image": "/images/destinations/varanasi.jpg",
+    "packageType": "Local Temple & Heritage Tour",
+    "distance": "80 km (Base Package)",
+    "duration": "8 Hours Full Day",
+    "summary": "Ideal for local temple darshan (Kashi Vishwanath, Annapurna Mandir, Sankat Mochan, Durga Kund, BHU Vishwanath Temple, and evening Ganga Aarti drop).",
+    "pricing": {
+      "dzire": 2000,
+      "ertiga": 2400,
+      "innovaCrysta": 3500,
+      "maharaja15": 5500,
+      "urbania16": 6500,
+      "tempoTraveller17": 5000,
+      "tempoTraveller20": 5500,
+      "tempoTraveller26": 6500,
+      "miniBus35": 12000,
+      "coach49": 15000
+    },
+    "highlights": [
+      "Shri Kashi Vishwanath Mandir & Annapurna Temple Darshan",
+      "Historic Kaal Bhairav Mandir (Kotwal of Kashi)",
+      "Sankat Mochan Hanuman Temple & Durga Kund Temple",
+      "BHU Campus & Grand Shri Vishwanath Mandir (New VT)",
+      "Tulsi Manas Mandir & Tridev Mandir",
+      "Evening Ganga Aarti Drop at Dashashwamedh Ghat"
+    ],
+    "itinerary": [
+      {
+        "time": "08:00 AM - 09:00 AM",
+        "title": "Hotel / Doorstep Pickup & Kashi Vishwanath Darshan",
+        "description": "Pickup from your hotel, railway station, or residence in Varanasi. Proceed to Kashi Vishwanath Dham and Annapurna Temple."
+      },
+      {
+        "time": "11:00 AM",
+        "title": "Kaal Bhairav & Local Heritage Streets",
+        "description": "Seek blessings at Kaal Bhairav temple before continuing the temple circuit."
+      },
+      {
+        "time": "01:00 PM",
+        "title": "Sankat Mochan, Durga Kund & Lunch",
+        "description": "Visit Sankat Mochan Hanuman temple, historic Durga Kund, and enjoy authentic Varanasi local cuisine."
+      },
+      {
+        "time": "03:00 PM",
+        "title": "BHU Vishwanath Temple & Tulsi Manas",
+        "description": "Tour the lush Banaras Hindu University campus, New Vishwanath Temple, and marble Tulsi Manas Mandir."
+      },
+      {
+        "time": "05:30 PM",
+        "title": "Evening Ganga Aarti Drop at Dashashwamedh Ghat",
+        "description": "Drop near Dashashwamedh / Rajendra Prasad Ghat for the world-famous evening Ganga Maha Aarti."
+      }
+    ],
+    "terms": [
+      "Package Limit: Base fare includes 8 Hours and 80 Kilometers within Varanasi.",
+      "Night Charges: Additional driver night allowance applies for pickups before 6:00 AM or drops after 9:00 PM.",
+      "Parking & Tolls: Actual parking charges and toll taxes are not included and must be paid as incurred.",
+      "Extra Usage: Running beyond 8 hours or 80 km will be charged at standard extra per-km and per-hour rates."
+    ],
+    "seo": {
+      "title": "Varanasi Local Darshan & Heritage Tour (8 Hrs/80 Km) | From ₹2,000 | Utkarsh Travels",
+      "description": "Book Varanasi local temple darshan cab package for Kashi Vishwanath, Sankat Mochan, BHU & Ganga Aarti. Sedan from ₹2,000, Ertiga ₹2,400, Innova ₹3,500. Book on WhatsApp.",
+      "keywords": [
+        "varanasi local darshan taxi fare",
+        "varanasi 8 hours 80 km cab package",
+        "kashi vishwanath darshan cab booking",
+        "varanasi local sight seeing car rental",
+        "varanasi tempo traveller local darshan",
+        "varanasi temple tour package cost"
+      ]
+    },
+    "faq": [
+      {
+        "question": "What is included in the Varanasi Local Darshan 8 Hrs / 80 Km package?",
+        "answer": "The package covers clean AC vehicle rental, fuel, and professional driver for 8 hours and up to 80 kilometers local travel covering all major Varanasi temples and evening Ganga Aarti drop."
+      },
+      {
+        "question": "What happens if our tour exceeds 8 hours or 80 km?",
+        "answer": "Extra hours and extra kilometers beyond the 8 Hrs / 80 Km limit are calculated at standard per-km and per-hour rates."
+      },
+      {
+        "question": "Are temple parking fees and tolls included in the price?",
+        "answer": "No, vehicle parking fees at temple lots and any applicable toll taxes are extra at actual receipts."
+      }
+    ],
+    "relatedSlugs": [
+      "varanasi-to-ayodhya-taxi-service",
+      "varanasi-to-prayagraj-taxi-service",
+      "varanasi-to-vindhyachal-taxi-service"
+    ]
   }
 ]

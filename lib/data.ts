@@ -55,6 +55,7 @@ export interface RouteItem {
   pricing: RoutePricing;
   highlights: string[];
   itinerary: RouteItineraryItem[];
+  terms?: string[];
   seo: {
     title: string;
     description: string;
